@@ -1,0 +1,60 @@
+body {
+ color: black;
+}
+
+
+@media screen and (max-width: 780px) {
+	.row2 { 	
+			display:none;
+	}
+}
+
+@media screen and (min-width: 780px) {
+	.row3 { 	
+			display:none;
+	}
+}
+
+@media screen and (max-width: 781px) {
+	.row3 { 	
+
+	}
+}
+
+@media screen and (min-width: 1001px) {
+	h1 { 	
+		font-size: 50px;
+		font-weight: bold;
+		text-align:center;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	h1 { 	
+		font-size: 30px;
+		font-weight: bold;
+		text-align:center;
+	}
+}
+
+h2 { 
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
+
+h3 {
+	font-size: 30px;
+	font-weight: bold;
+
+}
+
+.img-fluid { 
+	width: auto; 
+	height: auto;
+}
+
+.btn{
+	color: black;
+	background-color:gold;
+}
