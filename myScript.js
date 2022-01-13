@@ -34,8 +34,8 @@ function myFunction() {
 	}
 
 	else if (random == 3) {
-		document.getElementById("food1").innerHTML = "Vegaaninen juustomakaronilaatikko";
-		document.getElementById("food2").innerHTML = "Vegaaninen juustomakaronilaatikko";
+		document.getElementById("food1").innerHTML = "Lihaton juustomakaronilaatikko";
+		document.getElementById("food2").innerHTML = "Lihaton juustomakaronilaatikko";
 		
 		document.getElementById("instructions").innerHTML = 
 		
@@ -414,9 +414,9 @@ function lisaaListaan() {
 	//Vegaaninen juustomakaronilaatikko
 	if(document.getElementById('veke_makaroonilaatikko_tick1') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick1").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick1").value);
 		}
@@ -424,9 +424,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick2') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick2").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick2").value);
 		}
@@ -434,9 +434,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick3') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick3").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick3").value);
 		}
@@ -444,9 +444,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick4') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick4").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick4").value);
 		}
@@ -454,9 +454,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick5') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick5").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick5").value);
 		}
@@ -464,9 +464,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick6') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick6").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick6").value);
 		}
@@ -474,9 +474,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick7') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick7").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick7").value);
 		}
@@ -484,9 +484,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick8') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick8").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick8").value);
 		}
@@ -494,9 +494,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick9') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick9").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick9").value);
 		}
@@ -504,9 +504,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick10') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick10").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick10").value);
 		}
@@ -514,9 +514,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick11') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick11").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick11").value);
 		}
@@ -524,9 +524,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick12') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick12").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick12").value);
 		}
@@ -534,9 +534,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick13') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick13").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick13").value);
 		}
@@ -544,9 +544,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick14') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick14").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick14").value);
 		}
@@ -554,9 +554,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick15') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick15").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick15").value);
 		}
@@ -564,9 +564,9 @@ function lisaaListaan() {
 
 	if(document.getElementById('veke_makaroonilaatikko_tick16') !== null) {
 		if(document.getElementById("veke_makaroonilaatikko_tick16").checked == true) {
-			if (!lista.includes("Vegaaninen juustomakaronilaatikko")) {
+			if (!lista.includes("Lihaton juustomakaronilaatikko")) {
 				lista.push("");
-				lista.push("Vegaaninen juustomakaronilaatikko");
+				lista.push("Lihaton juustomakaronilaatikko");
 			}
 			lista.push(document.getElementById("veke_makaroonilaatikko_tick16").value);
 		}
