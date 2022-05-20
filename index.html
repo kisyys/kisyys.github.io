@@ -13,7 +13,7 @@
 		<title>Random kasvisruoka</title>
 	</head>
 	
-	<body>
+	<body onload="home()">
 		<script src="myScript.js"></script>
 		
 		<div class="container">
@@ -57,15 +57,15 @@
 			</div>
 			
 			<div class="row" style="height:50px;">
-				<div class="col-sm-9" style="margin:auto;"><h1 id="food1" style="text-align:center">Menu</h1></div>			
-				<div class="col-sm-9" style="margin:auto;"><h1 id="food2" style="text-align:center">Menu</h1></div>
+				<div class="col-sm-9" style="margin:auto;"><h1 id="food1" style="text-align:center">Kasvismenu</h1></div>			
+				<div class="col-sm-9" style="margin:auto;"><h1 id="food2" style="text-align:center">Kasvismenu</h1></div>
 			</div>
 			
 			<div class="row" style="min-height:450px;"  style="margin:auto;">		
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic1" src="wokki.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal1()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p1" style="text-align:center">
-					<b> Kasviswokki </b>					
+					<img id="pic0" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(0)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<p id="p0" style="text-align:center">
+					<b> </b>					
 					</p>
 					<p id="instructions">
 					<b> </b>					
@@ -73,9 +73,9 @@
 					
 				</div>
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic2" src="pasta2.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal4()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p2" style="text-align:center">
-					<b> Lihaton juustomakaronilaatikko </b>					
+					<img id="pic1" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(1)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<p id="p1" style="text-align:center">
+					<b> </b>					
 					</p>	
 				</div>
 			</div>
@@ -83,65 +83,83 @@
 			
 			<div class="row" style="min-height:450px;" style="margin:auto;">		
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic3" src="masala.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="mealX()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<img id="pic2" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(2)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<p id="p2" style="text-align:center">
+					<b> </b>					
+					</p>
+				</div>
+				<div class="col-sm-5" style="margin:auto;">
+					<img id="pic3" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(3)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
 					<p id="p3" style="text-align:center">
-					<b> Masala </b>					
+					<b> </b>
 					</p>
 				</div>
+			</div>
+			
+			<div class="row" style="min-height:450px;" style="margin:auto;">		
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic4" src="beans.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal2()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<img id="pic4" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(4)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
 					<p id="p4" style="text-align:center">
-					<b> Meksikolainen papukastike </b>
+					<b> </b>					
 					</p>
 				</div>
-			</div>
-			
-			<div class="row" style="min-height:450px;" style="margin:auto;">		
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic5" src="palsternakkakeitto.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="mealX()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<img id="pic5" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(5)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
 					<p id="p5" style="text-align:center">
-					<b> Palsternakkakeitto </b>					
+					<b> </b>					
 					</p>
 				</div>
+			</div>
+			
+			<div class="row" style="min-height:450px;" style="margin:auto;">		
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic6" src="pinaatti.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="mealX()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<img id="pic6" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(6)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
 					<p id="p6" style="text-align:center">
-					<b> Pinaatti </b>					
+					<b> </b>					
 					</p>
 				</div>
-			</div>
-			
-			<div class="row" style="min-height:450px;" style="margin:auto;">		
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic7" src="pyttipannu.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="mealX()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<img id="pic7" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(7)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
 					<p id="p7" style="text-align:center">
-					<b> Pyttipannu </b>					
-					</p>
-				</div>
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic8" src="seitan_pasta.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal3()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p8" style="text-align:center">
-					<b> Seitan-chorizopasta </b>					
+					<b> </b>					
 					</p>
 				</div>
 			</div>
 			
 			<div class="row" style="min-height:450px;" style="margin:auto;">		
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic9" src="lasagne.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="mealX()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p9" style="text-align:center">
-					<b> Lasagne </b>					
+					<img id="pic8" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(8)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<p id="p8" style="text-align:center">
+					<b> </b>					
 					</p>
 				</div>
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic10" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="mealX()" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p10" style="text-align:center">
-					<b>  </b>					
+					<img id="pic9" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(9)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<p id="p9" style="text-align:center">
+					<b> </b>					
 					</p>
 				</div>
 			</div>
 
+			<div class="row" style="min-height:450px;" style="margin:auto;">		
+				<div class="col-sm-5" style="margin:auto;">
+					<img id="pic10" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(10)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<p id="p10" style="text-align:center">
+					<b> </b>					
+					</p>
+				</div>
+				<div class="col-sm-5" style="margin:auto;">
+					<img id="pic11" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(11)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<p id="p11" style="text-align:center">
+					<b> </b>					
+					</p>
+				</div>
+			</div>
+
+
 		</div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
