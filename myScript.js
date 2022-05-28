@@ -3,10 +3,10 @@ var y = 0;
 
 let lista = []
 
-let ruuat = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki"]
+let ruuat = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki", "Sienikastike"]
 ruuat.sort();
 
-let ruuat2 = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen_pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen_papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki"]
+let ruuat2 = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen_pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen_papukastike", "Palsternakkakeitto" , "Seitan-chorizopasta", "Wokki", "Sienikastike"]
 ruuat2.sort();
 
 
@@ -291,6 +291,27 @@ function meal(meal_number) {
 
 		//11
 		else if (meal_number == 11) {
+
+			document.getElementById("food1").innerHTML = "Sienikastike";
+			document.getElementById("food2").innerHTML = "Sienikastike";
+
+			document.getElementById("instructions").innerHTML =
+
+			"4 annosta / 30 minuuttia <br> <br> <b> Aineet </b> <br>  <input type=checkbox id=Sienikastike_tick0 value=200g&nbsp;tuoreita&nbsp;herkkusieniä/tatteja> 200g tuoreita herkkusieniä/tatteja <br><input type=checkbox id=Sienikastike_tick1 value=2&nbsp;sipuli> 2 sipuli <br><input type=checkbox id=Sienikastike_tick2 value=1&nbsp;rkl&nbsp;voita> 1 rkl voita <br><input type=checkbox id=Sienikastike_tick3 value=2,5&nbsp;dl&nbsp;kauraruokaa&nbsp;(ruokakerman&nbsp;korvike)> 2,5 dl kauraruokaa (ruokakerman korvike) <br><input type=checkbox id=Sienikastike_tick4 value=2&nbsp;rkl&nbsp;soijaa> 2 rkl soijaa <br><input type=checkbox id=Sienikastike_tick5 value=öljyä> öljyä <br><input type=checkbox id=Sienikastike_tick6 value=jauhettua&nbsp;mustapippuria&nbsp;maun&nbsp;mukaan> jauhettua mustapippuria maun mukaan <br><input type=checkbox id=Sienikastike_tick7 value=lisäksi&nbsp;valmis&nbsp;kuiva-aineseos&nbsp;Luomuviljapihvejä&nbsp;150&nbsp;g&nbsp;tai&nbsp;pussi&nbsp;Ikean&nbsp;Huvudroll&nbsp;kasviproteiinipyöryköitä> lisäksi valmis kuiva-aineseos Luomuviljapihvejä 150 g tai pussi Ikean Huvudroll kasviproteiinipyöryköitä <br><input type=checkbox id=Sienikastike_tick8 value=lisäksi&nbsp;perunoita> lisäksi perunoita <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Pilko ja paista sipulit öljyssä. Lisää sienet ja paista muutama minuutti.  <br>  <br> Lisää kauraruoka, soija, mustapippuri ja persilja. Anna porista miedolla lämmöllä n. 5 min (kun kastike on saostunut). <br>  <br> Herkuttele kasvispihvien tai -pyöryköiden ja perunoiden kera! <br>  <br> Yllä oleva resepti on muokattu alkuperäisestä reseptistä, joka on löydetty: http://www.herkuttelijat.fi/2014/03/mahtavan-hyva-erilainen-ja-maukas.html <br>  <br>  <br>  <br> ";
+
+			document.getElementById("pic0").src = "Sienikastike.jpg";
+
+			clear();
+
+			x=1;
+			y=1;
+
+			window.scrollTo(0, 0);
+
+		}
+
+		//12
+		else if (meal_number == 12) {
 			
 			document.getElementById("food1").innerHTML = "Wokki";
 			document.getElementById("food2").innerHTML = "Wokki";
@@ -308,12 +329,7 @@ function meal(meal_number) {
 
 		}
 
-		//12
-		else if (meal_number == 12) {
-
-			mealX();
-
-		}
+		
 	
 	
 }
@@ -351,8 +367,6 @@ function randomMeal() {
 		}
 
 	}
-
-	console.log(random);
 	
 	window.scrollTo(0, 0);
 }
