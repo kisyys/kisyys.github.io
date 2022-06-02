@@ -2,7 +2,7 @@ var y = 0;
 
 let lista = []
 
-let ruuat = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki", "Sienikastike"]
+let ruuat = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki", "Sienikastike", "Vihis"]
 ruuat.sort();
 
 let ruuat2 = []
@@ -260,7 +260,6 @@ function meals(meal_number) {
 
 	}
 
-
 	if(ruuat[meal_number]=="Wokki") {
 	
 		document.getElementById("food1").innerHTML = "Wokki";
@@ -270,6 +269,21 @@ function meals(meal_number) {
 			
 		document.getElementById("pic00").src = "Wokki.jpg";
 
+		clear();
+
+	}
+
+	if(ruuat[meal_number]=="Vihis") {
+	
+		document.getElementById("food1").innerHTML = "Vihis";
+		document.getElementById("food2").innerHTML = "Vihis";
+		
+		document.getElementById("instructions").innerHTML =
+		
+		"1 annos / 1,5 minuuttia <br> <br> <b> Aineet </b> <br>  <input type=checkbox id=Vihis_tick0 value=1&nbsp;Vihis> 1 Vihis <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Ota Vihis pakkauksesta, halkaise ja lämmitä 1 minuutti mikrossa. <br>  <br> Mausta mielesi mukaan, esim. ketsupilla ja nauti vaiks suodatinpussista! <br>  <br>  <br>  <br> ";
+		
+		document.getElementById("pic00").src = "Vihis.jpg";
+		
 		clear();
 
 	}
