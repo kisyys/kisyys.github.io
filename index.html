@@ -10,10 +10,10 @@
 
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="styles.css">	
-		<title>Random kasvisruoka</title>
+		<title>Kasvisruoka</title>
 	</head>
 	
-	<body onload="home()">
+	<body>
 		<script src="myScript.js"></script>
 		
 		<div class="container">
@@ -27,7 +27,7 @@
 				  <div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 					  <li class="nav-item">
-						<a class="nav-link" href="#" onclick="home()"> <b>Etusivu</b></a>
+						<a class="nav-link" href="https://kisyys.github.io/" onclick="home()"> <b>Etusivu</b></a>
 					  </li>
 					  <li class="nav-item">
 						<a class="nav-link" href="#"><b></b></a>
@@ -35,19 +35,6 @@
 					  <li class="nav-item">
 						<a class="nav-link" href="#"><b></b></a>
 					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="#" onclick="randomMeal()"><b>Random kasvisruoka</b></a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="#"><b></b></a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="#"><b></b></a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" href="#" onclick="tulostaLista()"><b>Näytä ostoslista</b></a>
-					  </li>
-					</ul>
 				  </div>
 				</nav>
 				
@@ -56,125 +43,20 @@
 			<div class="row" style="height:20px;">
 			</div>
 			
-			<div class="row" style="height:50px;">
-				<div class="col-sm-9" style="margin:auto;"><h1 id="food1" style="text-align:center">Kasvismenu</h1></div>			
-				<div class="col-sm-9" style="margin:auto;"><h1 id="food2" style="text-align:center">Kasvismenu</h1></div>
-			</div>
-			
 			<div class="row" style="min-height:450px;"  style="margin:auto;">		
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic0" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(0)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p0" style="text-align:center">
-					<b> </b>					
-					</p>
-					<p id="instructions">
-					<b> </b>					
-					</p>
+					<a href="https://kisyys.github.io/kasvis/"><b>Kasvisruokamenu</b></a>					
 					
 				</div>
 				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic1" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(1)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+					<img id="pic1" src="question.jpg" alt="" class="img-fluid">
 					<p id="p1" style="text-align:center">
 					<b> </b>					
 					</p>	
 				</div>
 			</div>
-			
-			
-			<div class="row" style="min-height:450px;" style="margin:auto;">		
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic2" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(2)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p2" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic3" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(3)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p3" style="text-align:center">
-					<b> </b>
-					</p>
-				</div>
-			</div>
-			
-			<div class="row" style="min-height:450px;" style="margin:auto;">		
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic4" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(4)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p4" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic5" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(5)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p5" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-			</div>
-			
-			<div class="row" style="min-height:450px;" style="margin:auto;">		
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic6" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(6)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p6" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic7" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(7)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p7" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-			</div>
-			
-			<div class="row" style="min-height:450px;" style="margin:auto;">		
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic8" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(8)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p8" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic9" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(9)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p9" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-			</div>
-
-			<div class="row" style="min-height:450px;" style="margin:auto;">		
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic10" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(10)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p10" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic11" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(11)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p11" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-			</div>
-
-			<div class="row" style="min-height:450px;" style="margin:auto;">		
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic12" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(12)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p12" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic13" src="" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meal(13)" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p13" style="text-align:center">
-					<b> </b>					
-					</p>
-				</div>
-			</div>
-
 
 		</div>
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
