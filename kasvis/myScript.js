@@ -2,7 +2,7 @@ var y = 0;
 
 let lista = []
 
-let ruuat = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki", "Sienikastike", "Vihis"]
+let ruuat = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki", "Sienikastike", "Vihis", "Pasta carbonara", "Gochujang-nuudelit"]
 ruuat.sort();
 
 let ruuat2 = []
@@ -285,6 +285,36 @@ function meals(meal_number) {
 		document.getElementById("pic00").src = "Vihis.jpg";
 		
 		clear();
+
+	}
+
+	if(ruuat[meal_number]=="Pasta carbonara") {
+	
+		document.getElementById("food1").innerHTML = "Pasta carbonara";
+		document.getElementById("food2").innerHTML = "Pasta carbonara";
+
+		document.getElementById("instructions").innerHTML =
+
+		"4 annosta / 30 minuuttia <br> <br> <b> Aineet </b> <br>  <input type=checkbox id=Pasta_carbonara_tick0 value=4&nbsp;rkl&nbsp;vettä> 4 rkl vettä <br><input type=checkbox id=Pasta_carbonara_tick1 value=3&nbsp;rkl&nbsp;soijakastiketta> 3 rkl soijakastiketta <br><input type=checkbox id=Pasta_carbonara_tick2 value=2&nbsp;rkl&nbsp;tummaa&nbsp;siirappia> 2 rkl tummaa siirappia <br><input type=checkbox id=Pasta_carbonara_tick3 value=4&nbsp;tl&nbsp;riisiviinietikkaa> 4 tl riisiviinietikkaa <br><input type=checkbox id=Pasta_carbonara_tick4 value=3&nbsp;tl&nbsp;nestemäistä&nbsp;savuaromia> 3 tl nestemäistä savuaromia <br><input type=checkbox id=Pasta_carbonara_tick5 value=6&nbsp;dl&nbsp;Hernistä> 6 dl Hernistä <br><input type=checkbox id=Pasta_carbonara_tick6 value=öljyä&nbsp;paistamiseen> öljyä paistamiseen <br><input type=checkbox id=Pasta_carbonara_tick7 value=12&nbsp;kerää&nbsp;tagliatellea> 12 kerää tagliatellea <br><input type=checkbox id=Pasta_carbonara_tick8 value=4&nbsp;kevätsipulia> 4 kevätsipulia <br><input type=checkbox id=Pasta_carbonara_tick9 value=2&nbsp;iso&nbsp;valkosipulinkynsi> 2 iso valkosipulinkynsi <br><input type=checkbox id=Pasta_carbonara_tick10 value=2&nbsp;rkl&nbsp;oliiviöljyä> 2 rkl oliiviöljyä <br><input type=checkbox id=Pasta_carbonara_tick11 value=5&nbsp;dl&nbsp;juustonmakuista&nbsp;kaurakermaa> 5 dl juustonmakuista kaurakermaa <br><input type=checkbox id=Pasta_carbonara_tick12 value=½&nbsp;dl&nbsp;ravintohiivahiutaleita> ½ dl ravintohiivahiutaleita <br><input type=checkbox id=Pasta_carbonara_tick13 value=mustapippuria&nbsp;myllystä> mustapippuria myllystä <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Sekoita ensin yhteen vesi, soijakastike, tumma siirappi, riisiviinietikka ja savuaromi. Sekoita kastike Herniksen joukkoon ja anna nesteen imeytyä välillä käännellen (tähän menee muutama minuutti). <br>  <br> Paista Hernis-pekoni rapeaksi paistinpannulla öljyssä ja nosta pekoni sitten talouspaperin päälle odottamaan. <br>  <br> Keitä tagliatelle pakkauksen ohjeen mukaan. <br>  <br> Silppua kevätsipuli ja hienonna valkosipulinkynnet. Kuumenna öljy paistinpannulla ja kuullota valkosipulia öljyssä hetki. Kaada sitten paistinpannulle kaurakerma, lisää ravintohiivahiutaleet. Sekoittele tasaiseksi ja lisää sitten pannulle kevätsipuli ja mustapippuri. <br>  <br> Yhdistä kastike ja keitetty pasta. Lisää lopuksi joukkoon Hernis-pekoni. <br>  <br> Yllä oleva resepti on muokattu alkuperäisestä reseptistä, joka on löydetty: https://chocochili.net/2021/10/vegaaninen-pasta-carbonara/ <br>  <br>  <br>  <br> ";
+
+		document.getElementById("pic00").src = "Pasta carbonara.jpg";
+
+		clear();
+
+	}
+
+	if(ruuat[meal_number]=="Gochujang-nuudelit") {
+	
+		document.getElementById("food1").innerHTML = "Gochujang-nuudelit";
+		document.getElementById("food2").innerHTML = "Gochujang-nuudelit";
+
+		document.getElementById("instructions").innerHTML =
+
+		"4 annosta / 30 minuuttia <br> <br> <b> Aineet </b> <br>  <input type=checkbox id=Gochujang-nuudelit_tick0 value=150&nbsp;g&nbsp;leveitä&nbsp;riisinuudeleita> 150 g leveitä riisinuudeleita <br><input type=checkbox id=Gochujang-nuudelit_tick1 value=1/2&nbsp;ps&nbsp;(n.&nbsp;6&nbsp;dl)&nbsp;Hernistä> 1/2 ps (n. 6 dl) Hernistä <br><input type=checkbox id=Gochujang-nuudelit_tick2 value=öljyä&nbsp;paistamiseen> öljyä paistamiseen <br><input type=checkbox id=Gochujang-nuudelit_tick3 value=2&nbsp;dl&nbsp;vettä> 2 dl vettä <br><input type=checkbox id=Gochujang-nuudelit_tick4 value=2-3&nbsp;rkl&nbsp;gochujang-chilitahnaa> 2-3 rkl gochujang-chilitahnaa <br><input type=checkbox id=Gochujang-nuudelit_tick5 value=4&nbsp;1/2&nbsp;rkl&nbsp;soijakastiketta> 4 1/2 rkl soijakastiketta <br><input type=checkbox id=Gochujang-nuudelit_tick6 value=2&nbsp;rkl&nbsp;seesamiöljyä> 2 rkl seesamiöljyä <br><input type=checkbox id=Gochujang-nuudelit_tick7 value=2&nbsp;rkl&nbsp;riisiviinietikkaa> 2 rkl riisiviinietikkaa <br><input type=checkbox id=Gochujang-nuudelit_tick8 value=1&nbsp;rkl&nbsp;inkivääriä&nbsp;raastettuna> 1 rkl inkivääriä raastettuna <br><input type=checkbox id=Gochujang-nuudelit_tick9 value=2&nbsp;valkosipulinkynttä&nbsp;hienonnettuna> 2 valkosipulinkynttä hienonnettuna <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Keitä nuudelit pakkauksen ohjeen mukaan melkein kypsiksi. Valuta siivilässä. <br>  <br> Kuumenna öljy pannulla. Lisää Hernis ja paista pari minuuttia. Lisää vesi ja anna hautua, kunnes vesi on imeytynyt Hernikseen. <br>  <br> Sillä välin valmista kastike sekoittamalla kaikki kastikkeen ainekset: gochujang-chilitahna, soijakastike, seesamiöljy, riisiviinietikka, raastettu inkivääri ja hienonnettu valkosipuli yhteen.  <br>  <br> Kun vesi on imeytynyt Hernikseen, lisää vielä tilkka öljyä ja ruskista Hernis nopeasti. Lisää nuudelit ja kastike. Sekoita ja anna kuumeta.  <br>  <br> Yllä oleva resepti on muokattu alkuperäisestä reseptistä, joka on löydetty: https://vegeviettelys.blogspot.com/2021/10/gochujang-nuudelit.html <br>  <br>  <br>  <br> ";
+
+		document.getElementById("pic00").src = "Gochujang-nuudelit.jpg";
+
+		clear()
 
 	}
 
