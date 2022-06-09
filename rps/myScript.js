@@ -171,7 +171,7 @@ function RPS(chosen) {
             over = 1;
         }
 
-        document.getElementById("Score").innerHTML = "<b> Best of 10 games </b> <br> Player: " + player + "<br>	Computer: " + computer + " <br></br> ";
+        document.getElementById("Score").innerHTML = "<b> Winner of 10 points wins </b> <br> Player: " + player + "<br>	Computer: " + computer + " <br></br> ";
     
     } 
     
