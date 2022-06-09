@@ -164,7 +164,7 @@ function RPS(chosen) {
         if(computer>=10) {
             document.getElementById("winner").innerHTML = "Computer won the game!";
             document.getElementById("pic1").src = "Winner.gif";
-            document.getElementById("p1").innerHTML = "<b> I won! </b>";
+            document.getElementById("p1").innerHTML = "<b> Computer: I won! </b>";
             document.getElementById("pic0").src = "Loser.jpg";
             document.getElementById("p0").innerHTML = "<b> Player: I am a loser =( </b>";	
             over = 1;
@@ -173,7 +173,7 @@ function RPS(chosen) {
         if(player>=10) {
             document.getElementById("winner").innerHTML = "Player won the game!";
             document.getElementById("pic0").src = "Winner.gif";
-            document.getElementById("p0").innerHTML = "<b> I won! </b>";
+            document.getElementById("p0").innerHTML = "<b> Player: I won! </b>";
             document.getElementById("pic1").src = "Loser.jpg";
             document.getElementById("p1").innerHTML = "<b> Computer: I am a loser =( </b>";
             over = 1;
