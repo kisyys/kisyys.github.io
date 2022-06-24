@@ -103,7 +103,7 @@ body {
 	border-bottom-right-radius: 10px;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 880px) {
 	.day { 	
 			font-size: 11px;;
 	}
