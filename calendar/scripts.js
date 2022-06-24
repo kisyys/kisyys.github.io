@@ -17,6 +17,11 @@ function dayview(number) {
     document.getElementById("p1").innerHTML = "";
     document.getElementById("p2").innerHTML = "";
     document.getElementById("month_year").innerHTML = number + "/" + month + "/" + year;
+    
+    if(number==1 & month==5) {
+        const tasks = document.querySelector("#whattodo");
+        tasks.insertAdjacentHTML("beforeend", `<h2> Happy Birthday Panki! </h2> <br> <img src="Panki.jpg" alt="";></img>`);
+    }
 }
 
 function reset() {
@@ -29,8 +34,7 @@ function step(number) {
     document.getElementById("app-calendar1").innerHTML = "";
     document.getElementById("app-calendar2").innerHTML = "";
     document.getElementById("month_year").innerHTML = "";
-    //document.getElementById("p0").innerHTML = "";
-    //document.getElementById("p2").innerHTML = "";
+    document.getElementById("whattodo").innerHTML = "";
 
     whatMonth(number);
 
@@ -181,8 +185,10 @@ function whatMonth(number) {
                 
                 var random3 = Math.floor(Math.random() * 3);
 
-
-                if(random3==1 && random2==0) {
+                if(b==1 && month==5) {
+                    calendar2.insertAdjacentHTML("beforeend", `<div class="day"${` id=div"` + b + ` onclick="dayview(` + b +  `)";>` + "<b>" + b + "</b>" + " <br> " + "<b>" + "Panki" + "</b>"}</div>`);
+                }
+                else if(random3==1 && random2==0) {
                     calendar2.insertAdjacentHTML("beforeend", `<div class="day"${` id=div"` + b + ` onclick="dayview(` + b +  `)";>` + "<b>" + b + "</b>" + " <br> " + random0}</div>`);
                 }
                 else if(random3==1 && random2==1) {
