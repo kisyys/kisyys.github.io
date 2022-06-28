@@ -44,13 +44,13 @@ function dayview(number) {
         else if(hour==18 && number!=today && number%2==0) {
             etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<a href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`); 
         }
-        else if(now+1<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random3==0) {
+        else if(now+1<hour && 10<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random3==0) {
             etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:red";>` + random4 + "</p>"}</div>`);  
         }
         else if(10<hour && 21>=hour && number!=today && random3==0) {
             etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:red";>` + random4 + "</p>"}</div>`);  
         }
-        else if(now<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random1==0) {
+        else if(now<hour && 10<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random1==0) {
             etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:green";>` + random2 + "</p>"}</div>`);  
         }
         else if(10<hour && 21>=hour && number!=today && random1==0) {
@@ -58,7 +58,7 @@ function dayview(number) {
         }
         else {
             etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00"}</div>`);  
-        }  
+        }
     }
 
     if(number==1 & month==5) {
