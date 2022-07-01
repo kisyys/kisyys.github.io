@@ -188,10 +188,6 @@ body {
 }
 
 @media screen and (max-width: 780px) {
-	.day { 	
-			font-size: 11px;;
-	}
-
 	.daynames { 	
 		font-size: 16px;;
 	}
