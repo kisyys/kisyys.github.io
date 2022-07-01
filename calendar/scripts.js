@@ -14,10 +14,7 @@ var hard_tasks =["Exercise for 30 min", "Clean house", "Go kayaking for 60 min",
 
 
 function dayview(number, number2) {
-    console.log(number);
     
-    console.log(number2);
-
     document.getElementById("app-calendar1").innerHTML = "";
     document.getElementById("app-calendar2").innerHTML = "";
     document.getElementById("p0").innerHTML = "";
@@ -91,7 +88,6 @@ function step(number) {
     document.getElementById("tasks2").innerHTML = "";
 
     whatMonth(number);
-
 }
 
 function back(number) {
@@ -219,7 +215,7 @@ function whatMonth(number) {
                     calendar2.insertAdjacentHTML("beforeend", `<div class="day"${` id="div` + day + `" onclick="dayview(` + day + "," + g +`)";>` + "<b>" + day + "</b>" + "<br>" + "<b>" + "Panki" + "</b>"}</div>`);
                 }
 
-                else if(day==newDate.getDate() && month == d2.getMonth()+1 && year == d2.getFullYear()) {
+                else if(day==today && month == d2.getMonth()+1 && year == d2.getFullYear()) {
                     calendar2.insertAdjacentHTML("beforeend", `<div class="today"${` id="div` + day + `" onclick="dayview(` + day + "," + g +`)";>` + "<b>" + day + "</b>" + " <br> " + "<b>" + "Today" + "</b>"}</div>`);
                 }
 
@@ -228,17 +224,13 @@ function whatMonth(number) {
                 }
                         
                 grid++;
-                g++;
-                
+                g++;       
             }
-
         }
 
         calendar2.insertAdjacentHTML("beforeend", `<div class="day"></div>`);
 
         grid++;
-        g++;
-        
-    }
-    
+        g++;       
+    }    
 }
