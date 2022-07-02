@@ -265,9 +265,9 @@ function handleTouchMove(evt) {
                                                                          
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
-            step(-1);
-        } else {
             step(1);
+        } else {
+            step(-1);
             /* left swipe */
         }                       
     } else {
