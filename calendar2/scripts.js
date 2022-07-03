@@ -39,30 +39,30 @@ function dayview(number, number2) {
         var random4 = hard_tasks[Math.floor(Math.random()*hard_tasks.length)];
 
         if(now+1==hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear()) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="now"${` id="div` + hour + `";>` + "<b>"+ previous + ":00" + "-" + hour + ":00 <br>" + "Now" + "</b>"}</div>`);
+            etasks.insertAdjacentHTML("beforeend", `<div class="now"${` id="divhour` + hour + `";>` + "<b>"+ previous + ":00" + "-" + hour + ":00 <br>" + "Now" + "</b>"}</div>`);
             x = hour;    
         }
 
         else if(now+1<hour &&hour==18 && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && number%2==0) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<a href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`);         
+            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<a href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`);         
         }
         else if(hour==18 && number!=today && number%2==0 || hour==18 && number==today && month != d2.getMonth()+1 && number%2==0 ) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<a href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`);          
+            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<a href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`);          
         }
         else if(now+1<hour && 10<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random3==0) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:red";>` + random4 + "</p>"}</div>`); 
+            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:red";>` + random4 + "</p>"}</div>`); 
         }
         else if(10<hour && 21>=hour && number!=today && random3==0 || 10<hour && 21>=hour && number==today && month != d2.getMonth()+1 && year && random3==0 ) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:red";>` + random4 + "</p>"}</div>`);
+            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:red";>` + random4 + "</p>"}</div>`);
         }
         else if(now<hour && 10<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random1==0) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:green";>` + random2 + "</p>"}</div>`); 
+            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:green";>` + random2 + "</p>"}</div>`); 
         }
         else if(10<hour && 21>=hour && number!=today && random1==0 || 10<hour && 21>=hour && number==today && month != d2.getMonth()+1 && year && random1==0) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:green";>` + random2 + "</p>"}</div>`);
+            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + hour + `";>` + previous + ":00" + "-" + hour + ":00 <br>" + `<p style="color:green";>` + random2 + "</p>"}</div>`);
         }
         else {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="div` + hour + `";>` + previous + ":00" + "-" + hour + ":00"}</div>`);  
+            etasks.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + hour + `";>` + previous + ":00" + "-" + hour + ":00"}</div>`);  
         }  
     }
 
@@ -72,9 +72,69 @@ function dayview(number, number2) {
     // }
 
     if(x>0) {
-        const element = document.getElementById(`div${x}`);
+        const element = document.getElementById(`divhour${x}`);
         element.scrollIntoView();
-    }  
+    }
+    
+    divhour18.addEventListener('touchstart', handleTouchStart, false);        
+    divhour18.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;                                                        
+    var yDown = null;
+
+    function getTouches(evt) {
+    return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }                                                     
+                                                                            
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY;                                      
+    };                                                
+                                                                            
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+                if(display == 0) {
+                    step(1);
+                }
+                if(display == 1) {
+                    document.getElementById("divhour18").innerHTML = "";
+                    const done = document.querySelector("#divhour18");
+                    done.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + "18" + `";>` + "17" + ":00" + "-" + "18" + ":00"}</div>`);  
+                }
+                
+            } else {
+                /* right swipe */
+                if(display == 0) {
+                    step(-1);
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
 }
 
 
@@ -212,15 +272,15 @@ function whatMonth(number) {
                 }
           
                 if(day==1 && month==5) {
-                    calendar2.insertAdjacentHTML("beforeend", `<div class="day"${` id="div` + day + `" onclick="dayview(` + day + "," + g +`)";>` + "<b>" + day + "</b>" + "<br>" + "<b>" + "Panki" + "</b>"}</div>`);
+                    calendar2.insertAdjacentHTML("beforeend", `<div class="day"${` id="divday` + day + `" onclick="dayview(` + day + "," + g +`)";>` + "<b>" + day + "</b>" + "<br>" + "<b>" + "Panki" + "</b>"}</div>`);
                 }
 
                 else if(day==today && month == d2.getMonth()+1 && year == d2.getFullYear()) {
-                    calendar2.insertAdjacentHTML("beforeend", `<div class="today"${` id="div` + day + `" onclick="dayview(` + day + "," + g +`)";>` + "<b>" + day + "</b>" + " <br> " + "<b>" + "Today" + "</b>"}</div>`);
+                    calendar2.insertAdjacentHTML("beforeend", `<div class="today"${` id="divday` + day + `" onclick="dayview(` + day + "," + g +`)";>` + "<b>" + day + "</b>" + " <br> " + "<b>" + "Today" + "</b>"}</div>`);
                 }
 
                 else {
-                    calendar2.insertAdjacentHTML("beforeend", `<div class="day"${` id="div` + day + `" onclick="dayview(` + day + "," + g +`)";>` + day}</div>`);
+                    calendar2.insertAdjacentHTML("beforeend", `<div class="day"${` id="divday` + day + `" onclick="dayview(` + day + "," + g +`)";>` + day}</div>`);
                 }
                         
                 grid++;
@@ -236,56 +296,61 @@ function whatMonth(number) {
     }   
 }
 
-document.addEventListener('touchstart', handleTouchStart, false);        
-document.addEventListener('touchmove', handleTouchMove, false);
+//document.addEventListener('touchstart', handleTouchStart, false);        
+//document.addEventListener('touchmove', handleTouchMove, false);
+// divhour18.addEventListener('touchstart', handleTouchStart, false);        
+// divhour18.addEventListener('touchmove', handleTouchMove, false);
 
-var xDown = null;                                                        
-var yDown = null;
+// var xDown = null;                                                        
+// var yDown = null;
 
-function getTouches(evt) {
-  return evt.touches ||             // browser API
-         evt.originalEvent.touches; // jQuery
-}                                                     
+// function getTouches(evt) {
+//   return evt.touches ||             // browser API
+//          evt.originalEvent.touches; // jQuery
+// }                                                     
                                                                          
-function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];                                      
-    xDown = firstTouch.clientX;                                      
-    yDown = firstTouch.clientY;                                      
-};                                                
+// function handleTouchStart(evt) {
+//     const firstTouch = getTouches(evt)[0];                                      
+//     xDown = firstTouch.clientX;                                      
+//     yDown = firstTouch.clientY;                                      
+// };                                                
                                                                          
-function handleTouchMove(evt) {
-    if ( ! xDown || ! yDown ) {
-        return;
-    }
+// function handleTouchMove(evt) {
+//     if ( ! xDown || ! yDown ) {
+//         return;
+//     }
 
-    var xUp = evt.touches[0].clientX;                                    
-    var yUp = evt.touches[0].clientY;
+//     var xUp = evt.touches[0].clientX;                                    
+//     var yUp = evt.touches[0].clientY;
 
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
+//     var xDiff = xDown - xUp;
+//     var yDiff = yDown - yUp;
                                                                          
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if ( xDiff > 0 ) {
-            /* left swipe */
-            if(display == 0) {
-                step(1);
-            }
+//     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+//         if ( xDiff > 0 ) {
+//             /* left swipe */
+//             if(display == 0) {
+//                 step(1);
+//             }
+//             if(display == 1) {
+//                 console.log("heio");
+//             }
             
-        } else {
-            /* right swipe */
-            if(display == 0) {
-                step(-1);
-            }
+//         } else {
+//             /* right swipe */
+//             if(display == 0) {
+//                 step(-1);
+//             }
             
-        }                       
-    } else {
-        if ( yDiff > 0 ) {
-            /* down swipe */ 
-        } else { 
-            /* up swipe */
-        }                                                                 
-    }
-    /* reset values */
-    xDown = null;
-    yDown = null;                                             
-};
+//         }                       
+//     } else {
+//         if ( yDiff > 0 ) {
+//             /* down swipe */ 
+//         } else { 
+//             /* up swipe */
+//         }                                                                 
+//     }
+//     /* reset values */
+//     xDown = null;
+//     yDown = null;                                             
+// };
