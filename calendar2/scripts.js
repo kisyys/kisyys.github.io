@@ -7,13 +7,14 @@ var year = d2.getFullYear();
 var month = d2.getMonth()+1;
 var now = d2.getHours();
 var today = d2.getDate();
+var display = 0;
 
 var easy_tasks =["Do 10 pushups", "Do 10 abs", "Clean something", "Pick up 2 trashes outside", "Play with dog", "Walk 10 floors up"]
 var hard_tasks =["Exercise for 30 min", "Clean house", "Go kayaking for 60 min", "Go biking for 60 min"]
 
 
 function dayview(number, number2) {
-
+    display = 1;
     document.getElementById("app-calendar1").innerHTML = "";
     document.getElementById("app-calendar2").innerHTML = "";
     document.getElementById("p0").innerHTML = "";
@@ -90,7 +91,7 @@ function step(number) {
 }
 
 function back(number) {
-
+    display = 0;
     const previous = document.querySelector("#p0");
     //const reset = document.querySelector("#p1")
     const next = document.querySelector("#p2");
@@ -265,10 +266,17 @@ function handleTouchMove(evt) {
                                                                          
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
-            step(1);
-        } else {
-            step(-1);
             /* left swipe */
+            if(display == 0) {
+                step(1);
+            }
+            
+        } else {
+            /* right swipe */
+            if(display == 0) {
+                step(-1);
+            }
+            
         }                       
     } else {
         if ( yDiff > 0 ) {
