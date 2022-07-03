@@ -112,11 +112,11 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 if(display == 1) {
-                    //score++;
+                    score++;
                     document.getElementById("divhour18").innerHTML = document.getElementById("divhour18").innerText + " - Done";
                     //document.getElementById("tasks2").innerHTML = "";
                     const score = document.querySelector("#tasks2");
-                    score.insertAdjacentHTML("beforeend", `<b> Score: 1  </b>`);
+                    score.insertAdjacentHTML("beforeend", `<b> Score: ` + score + `</b>`);
                 }
                 
             }                       
