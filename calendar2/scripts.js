@@ -110,16 +110,16 @@ function dayview(number, number2) {
                 if(display == 0) {
                     step(1);
                 }
-                if(display == 1) {
-                    document.getElementById("divhour18").innerHTML = "";
-                    const done = document.querySelector("#divhour18");
-                    done.insertAdjacentHTML("beforeend", `<div class="hour"${` id="divhour` + "18" + `";>` + "17" + ":00" + "-" + "18" + ":00"}</div>`);  
-                }
+                
                 
             } else {
                 /* right swipe */
                 if(display == 0) {
                     step(-1);
+                }
+
+                if(display == 1) {
+                    document.getElementById("divhour18").innerHTML = `<div class="hour"${` id="divhour` + "18" + `";>` + "17" + ":00" + "-" + "18" + ":00"}</div>`;
                 }
                 
             }                       
