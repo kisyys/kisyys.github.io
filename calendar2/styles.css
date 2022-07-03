@@ -40,7 +40,7 @@ body {
 }
 
 #tasks2 {
-	text-align:start;
+	vertical-align: top;
 }
 
 .move2 {
