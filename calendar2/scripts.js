@@ -113,7 +113,7 @@ function dayview(number, number2) {
               
             } else {
                 /* right swipe */
-                if(display == 1) {
+                if(display == 1 && !content.includes("Done") {
                     score++;
                     document.getElementById("divhour18").innerHTML = "";
                     document.getElementById("divhour18").innerHTML = content + " - Done";
