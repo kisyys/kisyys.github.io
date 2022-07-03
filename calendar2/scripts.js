@@ -76,6 +76,8 @@ function dayview(number, number2) {
         const element = document.getElementById(`divhour${x}`);
         element.scrollIntoView();
     }
+
+    var content = document.getElementById("divhour18").innerText;
     
     divhour18.addEventListener('touchstart', handleTouchStart, false);        
     divhour18.addEventListener('touchmove', handleTouchMove, false);
@@ -113,7 +115,8 @@ function dayview(number, number2) {
                 /* right swipe */
                 if(display == 1) {
                     score++;
-                    document.getElementById("divhour18").innerHTML = document.getElementById("divhour18").innerText + " - Done";
+                    document.getElementById("divhour18").innerHTML = "";
+                    document.getElementById("divhour18").innerHTML = content + " - Done";
                     document.getElementById("tasks2").innerHTML = "";
                     const score2 = document.querySelector("#tasks2");
                     score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
