@@ -87,12 +87,28 @@ function dayview(number, number2) {
         listener.addEventListener('touchmove', handleTouchMove, false);
     }
 
+    
+
+        // var content = document.getElementById(list_divhourtasks[0]).innerText;
+        // const myArray = content.split(":");
+        // var eka = parseInt(myArray[0]) +1; 
+
+        // if(display == 1 && !content.includes("Done"))  {                
+        //     score++;
+        //     var div = document.getElementById("divhourtask"+eka);
+        //     div.innerHTML += " - Done";
+        //     document.getElementById("tasks2").innerHTML = "";
+        //     const score2 = document.querySelector("#tasks2");
+        //     score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+        // }
+    
+
     var xDown = null;                                                        
     var yDown = null;
 
     function getTouches(evt) {
-    return evt.touches ||             // browser API
-            evt.originalEvent.touches; // jQuery
+        return evt.touches ||             // browser API
+                evt.originalEvent.touches; // jQuery
     }                                                     
                                                                             
     function handleTouchStart(evt) {
@@ -121,7 +137,9 @@ function dayview(number, number2) {
 
                 for(let i = 0; i<list_divhourtasks.length;i++) {
                     var content = document.getElementById(list_divhourtasks[i]).innerText;
-                    if(display == 1 && !content.includes("Done") && document.getElementById(list_divhourtasks[i]))  {                
+                    const myArray = content.split(":");
+                    var time = parseInt(myArray[0]) +1; 
+                    if(display == 1 && !content.includes("Done") && list_divhourtasks[i]=="divhourtask"+time)  {                
                         score++;
                         var div = document.getElementById(list_divhourtasks[i]);
                         div.innerHTML += " - Done";
