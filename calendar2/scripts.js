@@ -117,8 +117,9 @@ function dayview(number, number2) {
                 if(display == 1 && !content.includes("Done"))  {
                     
                     score++;
-                    document.getElementById("divhour18").innerHTML = "";
-                    document.getElementById("divhour18").innerHTML = content + " - Done";
+                    //document.getElementById("divhour18").innerHTML = "";
+                    //document.getElementById("divhour18").innerHTML = content + " - Done";
+                    divhour18.innerHTML += " - Done";
                     document.getElementById("tasks2").innerHTML = "";
                     const score2 = document.querySelector("#tasks2");
                     score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
