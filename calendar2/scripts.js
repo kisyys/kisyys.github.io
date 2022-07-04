@@ -121,7 +121,7 @@ function dayview(number, number2) {
 
                 for(let i = 0; i<list_divhourtasks.length;i++) {
                     var content = document.getElementById(list_divhourtasks[i]).innerText;
-                    if(display == 1 && !content.includes("Done") && !document.getElementById(list_divhourtasks[i]))  {                
+                    if(display == 1 && !content.includes("Done") && document.getElementById(list_divhourtasks[i]))  {                
                         score++;
                         var div = document.getElementById(list_divhourtasks[i]);
                         div.innerHTML += " - Done";
