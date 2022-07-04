@@ -82,8 +82,9 @@ function dayview(number, number2) {
     }
 
     for(let i = 0; i<list_divhourtasks.length;i++) {
-        list_divhourtasks[i] + ".addEventListener('touchstart', handleTouchStart, false);"
-        list_divhourtasks[i] + ".addEventListener('touchmove', handleTouchMove, false);"
+        var listener = document.getElementById(list_divhourtasks[i]);
+        listener.addEventListener('touchstart', handleTouchStart, false);
+        listener.addEventListener('touchmove', handleTouchMove, false);
     }
 
     var xDown = null;                                                        
