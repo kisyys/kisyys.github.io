@@ -77,7 +77,7 @@ function dayview(number, number2) {
         element.scrollIntoView();
     }
 
-    var content = document.getElementById("divhour18").innerText;
+    
     
     divhour18.addEventListener('touchstart', handleTouchStart, false);        
     divhour18.addEventListener('touchmove', handleTouchMove, false);
@@ -113,7 +113,9 @@ function dayview(number, number2) {
               
             } else {
                 /* right swipe */
-                if(display == 1 && !divhour18.includes("Done"))  {
+                var content = document.getElementById("divhour18").innerText;
+                if(display == 1 && !content.includes("Done"))  {
+                    
                     score++;
                     document.getElementById("divhour18").innerHTML = "";
                     document.getElementById("divhour18").innerHTML = content + " - Done";
