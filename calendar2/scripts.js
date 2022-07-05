@@ -81,14 +81,19 @@ function dayview(number, number2) {
         element.scrollIntoView();
     }
 
-    for(let i = 0; i<list_divhourtasks.length;i++) {
-        var listener = document.getElementById(list_divhourtasks[i]);
-        listener.addEventListener('touchstart', handleTouchStart, false);
-        listener.addEventListener('touchmove', handleTouchMove, false);
+    var vars = [];
+
+    for (var i = 0; i <= list_divhourtasks.length; ++i) {
+        vars[i] = "listener"+i;
     }
 
-    
+    for(let i = 0; i<list_divhourtasks.length;i++) {
+        vars[i] = document.getElementById(list_divhourtasks[i]);
+        vars[i].addEventListener('touchstart', handleTouchStart, false);
+        vars[i].addEventListener('touchmove', handleTouchMove, false);
 
+    }
+    
         // var content = document.getElementById(list_divhourtasks[0]).innerText;
         // const myArray = content.split(":");
         // var eka = parseInt(myArray[0]) +1; 
