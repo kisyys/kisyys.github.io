@@ -31,7 +31,7 @@ function dayview(number, number2) {
     var x =0;
     var dayName2 = days2[number2];
     const topic = document.querySelector("#tasks0");
-    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + "</b>"}</div>`);
+    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test5" +  "</b>"}</div>`);
 
     const etasks = document.querySelector("#tasks1");
 
@@ -87,11 +87,11 @@ function dayview(number, number2) {
         vars[i] = "listener"+i;
     }
 
-    var ev = "";
+ 
     for(let i = 0; i<list_divhourtasks.length;i++) {
         vars[i] = document.getElementById(list_divhourtasks[i]);
         vars[i].addEventListener('touchstart', handleTouchStart, false);
-        vars[i].addEventListener('touchmove', handleTouchMove(ev,i), false);
+        vars[i].addEventListener('touchmove', handleTouchMove("",i), false);
 
     }
  
@@ -113,6 +113,7 @@ function dayview(number, number2) {
     var xDown = null;                                                        
     var yDown = null;
 
+
     function getTouches(evt) {
         return evt.touches ||             // browser API
                 evt.originalEvent.touches; // jQuery
@@ -124,7 +125,7 @@ function dayview(number, number2) {
         yDown = firstTouch.clientY;                                      
     };                                                
                                                                             
-    function handleTouchMove(evt,number) {
+    function handleTouchMove(evt, nm) {
         if ( ! xDown || ! yDown ) {
             return;
         }
@@ -146,10 +147,10 @@ function dayview(number, number2) {
                     var content = document.getElementById(list_divhourtasks[i]).innerText;
                     const myArray = content.split(":");
                     var time = parseInt(myArray[0]) +1; 
-                    if(display == 1 && !content.includes("Done") && i==number)  {                
+                    if(display == 1 && !content.includes("Done") && i==nm)  {                
                         score++;
                         var div = document.getElementById(list_divhourtasks[i]);
-                        div.innerHTML += " - Done4";
+                        div.innerHTML += " - Done5";
                         document.getElementById("tasks2").innerHTML = "";
                         const score2 = document.querySelector("#tasks2");
                         score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
