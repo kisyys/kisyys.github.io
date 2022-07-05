@@ -90,9 +90,10 @@ function dayview(number, number2) {
     for(let i = 0; i<list_divhourtasks.length;i++) {
         vars[i] = document.getElementById(list_divhourtasks[i]);
         vars[i].addEventListener('touchstart', handleTouchStart, false);
-        vars[i].addEventListener('touchmove', handleTouchMove, false);
+        vars[i].addEventListener('touchmove', handleTouchMove(i), false);
 
     }
+ 
     
         // var content = document.getElementById(list_divhourtasks[0]).innerText;
         // const myArray = content.split(":");
@@ -122,7 +123,7 @@ function dayview(number, number2) {
         yDown = firstTouch.clientY;                                      
     };                                                
                                                                             
-    function handleTouchMove(evt) {
+    function handleTouchMove(evt,number) {
         if ( ! xDown || ! yDown ) {
             return;
         }
@@ -144,10 +145,10 @@ function dayview(number, number2) {
                     var content = document.getElementById(list_divhourtasks[i]).innerText;
                     const myArray = content.split(":");
                     var time = parseInt(myArray[0]) +1; 
-                    if(display == 1 && !content.includes("Done") && list_divhourtasks[i]=="divhourtask"+time)  {                
+                    if(display == 1 && !content.includes("Done") && i==number)  {                
                         score++;
                         var div = document.getElementById(list_divhourtasks[i]);
-                        div.innerHTML += " - Done2";
+                        div.innerHTML += " - Done3";
                         document.getElementById("tasks2").innerHTML = "";
                         const score2 = document.querySelector("#tasks2");
                         score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
