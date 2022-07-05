@@ -87,10 +87,11 @@ function dayview(number, number2) {
         vars[i] = "listener"+i;
     }
 
+    var ev = "";
     for(let i = 0; i<list_divhourtasks.length;i++) {
         vars[i] = document.getElementById(list_divhourtasks[i]);
         vars[i].addEventListener('touchstart', handleTouchStart, false);
-        vars[i].addEventListener('touchmove', handleTouchMove(i), false);
+        vars[i].addEventListener('touchmove', handleTouchMove(ev,i), false);
 
     }
  
@@ -148,7 +149,7 @@ function dayview(number, number2) {
                     if(display == 1 && !content.includes("Done") && i==number)  {                
                         score++;
                         var div = document.getElementById(list_divhourtasks[i]);
-                        div.innerHTML += " - Done3";
+                        div.innerHTML += " - Done4";
                         document.getElementById("tasks2").innerHTML = "";
                         const score2 = document.querySelector("#tasks2");
                         score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
