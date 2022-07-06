@@ -31,7 +31,7 @@ function dayview(number, number2) {
     var x =0;
     var dayName2 = days2[number2];
     const topic = document.querySelector("#tasks0");
-    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test7" +  "</b>"}</div>`);
+    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test8" +  "</b>"}</div>`);
 
     const etasks = document.querySelector("#tasks1");
 
@@ -87,28 +87,14 @@ function dayview(number, number2) {
         vars[i] = "listener"+i;
     }
 
- 
-    for(let i = 0; i<list_divhourtasks.length;i++) {
-        vars[i] = document.getElementById(list_divhourtasks[i]);
-        vars[i].addEventListener('touchstart', handleTouchStart, false);
-        vars[i].addEventListener('touchmove', handleTouchMove, false);
+    vars[0] = document.getElementById(list_divhourtasks[0]);
+    vars[0].addEventListener('touchstart', handleTouchStart, false);
+    vars[0].addEventListener('touchmove', handleTouchMove0, false);
 
-    }
- 
-    
-        // var content = document.getElementById(list_divhourtasks[0]).innerText;
-        // const myArray = content.split(":");
-        // var eka = parseInt(myArray[0]) +1; 
-
-        // if(display == 1 && !content.includes("Done"))  {                
-        //     score++;
-        //     var div = document.getElementById("divhourtask"+eka);
-        //     div.innerHTML += " - Done";
-        //     document.getElementById("tasks2").innerHTML = "";
-        //     const score2 = document.querySelector("#tasks2");
-        //     score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
-        // }
-    
+    vars[1] = document.getElementById(list_divhourtasks[1]);
+    vars[1].addEventListener('touchstart', handleTouchStart, false);
+    vars[1].addEventListener('touchmove', handleTouchMove1, false);
+       
 
     var xDown = null;                                                        
     var yDown = null;
@@ -125,7 +111,7 @@ function dayview(number, number2) {
         yDown = firstTouch.clientY;                                      
     };                                                
                                                                             
-    function handleTouchMove(evt) {
+    function handleTouchMove0(evt) {
         if ( ! xDown || ! yDown ) {
             return;
         }
@@ -143,20 +129,60 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
 
-                for(let i = 0; i<list_divhourtasks.length;i++) {
-                    var content = document.getElementById(list_divhourtasks[i]).innerText;
-                    const myArray = content.split(":");
-                    var time = parseInt(myArray[0]) +1; 
-                    if(display == 1 && !content.includes("Done"))  {                
-                        score++;
-                        var div = document.getElementById(list_divhourtasks[i]);
-                        div.innerHTML += " - Done";
-                        document.getElementById("tasks2").innerHTML = "";
-                        const score2 = document.querySelector("#tasks2");
-                        score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
-                    }
+                var content = document.getElementById(list_divhourtasks[0]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[0]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
                 }
                 
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove1(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+
+                var content = document.getElementById(list_divhourtasks[1]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[1]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
                 
             }                       
         } else {
