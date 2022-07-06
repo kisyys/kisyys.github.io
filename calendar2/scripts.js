@@ -31,7 +31,7 @@ function dayview(number, number2) {
     var x =0;
     var dayName2 = days2[number2];
     const topic = document.querySelector("#tasks0");
-    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test5" +  "</b>"}</div>`);
+    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test6" +  "</b>"}</div>`);
 
     const etasks = document.querySelector("#tasks1");
 
@@ -91,7 +91,7 @@ function dayview(number, number2) {
     for(let i = 0; i<list_divhourtasks.length;i++) {
         vars[i] = document.getElementById(list_divhourtasks[i]);
         vars[i].addEventListener('touchstart', handleTouchStart, false);
-        vars[i].addEventListener('touchmove', handleTouchMove("",i), false);
+        vars[i].addEventListener('touchmove', handleTouchMove, false);
 
     }
  
@@ -125,7 +125,7 @@ function dayview(number, number2) {
         yDown = firstTouch.clientY;                                      
     };                                                
                                                                             
-    function handleTouchMove(evt, nm) {
+    function handleTouchMove(evt) {
         if ( ! xDown || ! yDown ) {
             return;
         }
@@ -147,7 +147,7 @@ function dayview(number, number2) {
                     var content = document.getElementById(list_divhourtasks[i]).innerText;
                     const myArray = content.split(":");
                     var time = parseInt(myArray[0]) +1; 
-                    if(display == 1 && !content.includes("Done") && i==nm)  {                
+                    if(display == 1 && !content.includes("Done"))  {                
                         score++;
                         var div = document.getElementById(list_divhourtasks[i]);
                         div.innerHTML += " - Done5";
@@ -323,66 +323,75 @@ function whatMonth(number) {
                 g++;               
             }
 
+            if(grid==36) {
+                break;
+                
+            }
+
+            if(grid<=36) {
+                grid = grid + 7;
+            }
+
         }
 
         calendar2.insertAdjacentHTML("beforeend", `<div class="day"></div>`);
 
         grid++;
         g++;       
-    }   
+    }
+    
+    calendar2.addEventListener('touchstart', handleTouchStart, false);        
+    calendar2.addEventListener('touchmove', handleTouchMove, false);
+
+
+    var xDown = null;                                                        
+    var yDown = null;
+
+    function getTouches(evt) {
+    return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }                                                     
+                                                                            
+    function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY;                                      
+    };                                                
+                                                                            
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+                if(display == 0) {
+                    step(1);
+                }
+                
+            } else {
+                /* right swipe */
+                if(display == 0) {
+                    step(-1);
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };   
 }
-
-// document.addEventListener('touchstart', handleTouchStart, false);        
-// document.addEventListener('touchmove', handleTouchMove, false);
-
-
-// var xDown = null;                                                        
-// var yDown = null;
-
-// function getTouches(evt) {
-//   return evt.touches ||             // browser API
-//          evt.originalEvent.touches; // jQuery
-// }                                                     
-                                                                         
-// function handleTouchStart(evt) {
-//     const firstTouch = getTouches(evt)[0];                                      
-//     xDown = firstTouch.clientX;                                      
-//     yDown = firstTouch.clientY;                                      
-// };                                                
-                                                                         
-// function handleTouchMove(evt) {
-//     if ( ! xDown || ! yDown ) {
-//         return;
-//     }
-
-//     var xUp = evt.touches[0].clientX;                                    
-//     var yUp = evt.touches[0].clientY;
-
-//     var xDiff = xDown - xUp;
-//     var yDiff = yDown - yUp;
-                                                                         
-//     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-//         if ( xDiff > 0 ) {
-//             /* left swipe */
-//             if(display == 0) {
-//                 step(1);
-//             }
-            
-//         } else {
-//             /* right swipe */
-//             if(display == 0) {
-//                 step(-1);
-//             }
-            
-//         }                       
-//     } else {
-//         if ( yDiff > 0 ) {
-//             /* down swipe */ 
-//         } else { 
-//             /* up swipe */
-//         }                                                                 
-//     }
-//     /* reset values */
-//     xDown = null;
-//     yDown = null;                                             
-// };
