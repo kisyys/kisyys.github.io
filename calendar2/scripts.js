@@ -31,7 +31,7 @@ function dayview(number, number2) {
     var x =0;
     var dayName2 = days2[number2];
     const topic = document.querySelector("#tasks0");
-    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test8" +  "</b>"}</div>`);
+    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test9" +  "</b>"}</div>`);
 
     const etasks = document.querySelector("#tasks1");
 
@@ -83,18 +83,306 @@ function dayview(number, number2) {
 
     var vars = [];
 
-    for (var i = 0; i <= list_divhourtasks.length; ++i) {
+    for (var i = 0; i <= 10; ++i) {
         vars[i] = "listener"+i;
     }
 
-    vars[0] = document.getElementById(list_divhourtasks[0]);
-    vars[0].addEventListener('touchstart', handleTouchStart, false);
-    vars[0].addEventListener('touchmove', handleTouchMove0, false);
+    if(list_divhourtasks.length<=1) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+    }
 
-    vars[1] = document.getElementById(list_divhourtasks[1]);
-    vars[1].addEventListener('touchstart', handleTouchStart, false);
-    vars[1].addEventListener('touchmove', handleTouchMove1, false);
-       
+    else if(list_divhourtasks.length<=2) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+    }
+
+    else if(list_divhourtasks.length<=3) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+    }
+
+    else if(list_divhourtasks.length<=4) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+        numb2 = 3;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove3, false);
+    }
+
+    else if(list_divhourtasks.length<=5) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+        numb2 = 3;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove3, false);
+        numb2 = 4;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove4, false);
+    }
+
+    else if(list_divhourtasks.length<=6) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+        numb2 = 3;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove3, false);
+        numb2 = 4;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove4, false);
+        numb2 = 5;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove5, false);
+    }
+
+    else if(list_divhourtasks.length<=7) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+        numb2 = 3;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove3, false);
+        numb2 = 4;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove4, false);
+        numb2 = 5;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove5, false);
+        numb2 = 6;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove6, false);
+    }
+
+    else if(list_divhourtasks.length<=8) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+        numb2 = 3;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove3, false);
+        numb2 = 4;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove4, false);
+        numb2 = 5;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove5, false);
+        numb2 = 6;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove6, false);
+        numb2 = 7;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove7, false);
+    }
+
+    else if(list_divhourtasks.length<=9) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+        numb2 = 3;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove3, false);
+        numb2 = 4;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove4, false);
+        numb2 = 5;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove5, false);
+        numb2 = 6;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove6, false);
+        numb2 = 7;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove7, false);
+        numb2 = 8;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove8, false);
+    }
+
+    else if(list_divhourtasks.length<=10) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+        numb2 = 3;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove3, false);
+        numb2 = 4;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove4, false);
+        numb2 = 5;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove5, false);
+        numb2 = 6;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove6, false);
+        numb2 = 7;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove7, false);
+        numb2 = 8;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove8, false);
+        numb2 = 9;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove9, false);
+    }
+
+    else if(list_divhourtasks.length<=11) {
+        var numb2 = 0;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove0, false);
+        numb2 = 1;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove1, false);
+        numb2 = 2;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove2, false);
+        numb2 = 3;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove3, false);
+        numb2 = 4;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove4, false);
+        numb2 = 5;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove5, false);
+        numb2 = 6;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove6, false);
+        numb2 = 7;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove7, false);
+        numb2 = 8;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove8, false);
+        numb2 = 9;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove9, false);
+        numb2 = 10;
+        vars[numb2] = document.getElementById(list_divhourtasks[numb2]);
+        vars[numb2].addEventListener('touchstart', handleTouchStart, false);
+        vars[numb2].addEventListener('touchmove', handleTouchMove10, false);
+    }
 
     var xDown = null;                                                        
     var yDown = null;
@@ -128,13 +416,13 @@ function dayview(number, number2) {
               
             } else {
                 /* right swipe */
-
-                var content = document.getElementById(list_divhourtasks[0]).innerText;
+                var numb = 0;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
                 const myArray = content.split(":");
                 var time = parseInt(myArray[0]) +1; 
                 if(display == 1 && !content.includes("Done"))  {                
                     score++;
-                    var div = document.getElementById(list_divhourtasks[0]);
+                    var div = document.getElementById(list_divhourtasks[numb]);
                     div.innerHTML += " - Done";
                     document.getElementById("tasks2").innerHTML = "";
                     const score2 = document.querySelector("#tasks2");
@@ -171,13 +459,400 @@ function dayview(number, number2) {
               
             } else {
                 /* right swipe */
-
-                var content = document.getElementById(list_divhourtasks[1]).innerText;
+                var numb = 1;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
                 const myArray = content.split(":");
                 var time = parseInt(myArray[0]) +1; 
                 if(display == 1 && !content.includes("Done"))  {                
                     score++;
-                    var div = document.getElementById(list_divhourtasks[1]);
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove2(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 2;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove3(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 3;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove4(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 4;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove5(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 5;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove6(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 6;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove7(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 7;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove8(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 8;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove9(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 9;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
+                    div.innerHTML += " - Done";
+                    document.getElementById("tasks2").innerHTML = "";
+                    const score2 = document.querySelector("#tasks2");
+                    score2.insertAdjacentHTML("beforeend", "<b> Score: " + score + "</b>");
+                }
+                
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /* down swipe */ 
+            } else { 
+                /* up swipe */
+            }                                                                 
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;                                             
+    };
+
+    function handleTouchMove10(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+                                                                            
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /* left swipe */
+              
+            } else {
+                /* right swipe */
+                var numb = 10;
+                var content = document.getElementById(list_divhourtasks[numb]).innerText;
+                const myArray = content.split(":");
+                var time = parseInt(myArray[0]) +1; 
+                if(display == 1 && !content.includes("Done"))  {                
+                    score++;
+                    var div = document.getElementById(list_divhourtasks[numb]);
                     div.innerHTML += " - Done";
                     document.getElementById("tasks2").innerHTML = "";
                     const score2 = document.querySelector("#tasks2");
@@ -421,4 +1096,4 @@ function handleTouchMove(evt) {
     /* reset values */
     xDown = null;
     yDown = null;                                             
-};   
+};
