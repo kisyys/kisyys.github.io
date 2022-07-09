@@ -31,7 +31,7 @@ function dayview(number, number2) {
     var x =0;
     var dayName2 = days2[number2];
     const topic = document.querySelector("#tasks0");
-    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test9" +  "</b>"}</div>`);
+    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test10" +  "</b>"}</div>`);
 
     const etasks = document.querySelector("#tasks1");
 
@@ -64,7 +64,7 @@ function dayview(number, number2) {
             list_divhourtasks.push("divhourtask" + hour); 
         }
         else if(now<hour && 10<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random1==0) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="houreasy"${` id="divhourtask` + hour + `";>` + `<p style="color:black";>` + previous + ":00" + "-" + hour + ":00" + "  " + "</p>" + random2}</div>`);
+            etasks.insertAdjacentHTML("beforeend", `<div class="houreasy"${` id="divhourtask` + hour + `";>` + `<p style="color:black";>` + previous + ":00" + "-" + hour + ":00" + "  " + "</p>" +  random2}</div>`);
             list_divhourtasks.push("divhourtask" + hour);  
         }
         else if(10<hour && 21>=hour && number!=today && random1==0 || 10<hour && 21>=hour && number==today && month != d2.getMonth()+1 && year && random1==0) {
@@ -391,11 +391,6 @@ function dayview(number, number2) {
     var xDown = null;                                                        
     var yDown = null;
 
-    // var div = document.getElementById(list_divhourtasks[0]);
-    // var t = div.textContent;
-    // var t2 = t.split("  ");
-    // div.innerHTML = `<p style="color:black";>` + t2[0] + "  " + "</p>" +  "<del>" + t2[1] + "</del>";
-
     function done(numberx) {
         score++;
         var div = document.getElementById(list_divhourtasks[numberx]);
@@ -437,10 +432,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 0;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -475,10 +468,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 1;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -513,10 +504,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 2;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -551,10 +540,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 3;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -589,10 +576,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 4;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -627,10 +612,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 5;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -665,10 +648,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 6;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -703,10 +684,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 7;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -741,10 +720,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 8;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -779,10 +756,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 9;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -817,10 +792,8 @@ function dayview(number, number2) {
             } else {
                 /* right swipe */
                 var numb = 10;
-                var content = document.getElementById(list_divhourtasks[numb]).innerText;
-                const myArray = content.split(":");
-                var time = parseInt(myArray[0]) +1; 
-                if(display == 1 && !content.includes("Done"))  {                
+                var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
