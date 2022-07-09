@@ -64,7 +64,7 @@ function dayview(number, number2) {
             list_divhourtasks.push("divhourtask" + hour); 
         }
         else if(now<hour && 10<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random1==0) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="houreasy"${` id="divhourtask` + hour + `";>` + `<p style="color:black";>` + previous + ":00" + "-" + hour + ":00" + "  " + "</p>" +  + random2}</div>`);
+            etasks.insertAdjacentHTML("beforeend", `<div class="houreasy"${` id="divhourtask` + hour + `";>` + `<p style="color:black";>` + previous + ":00" + "-" + hour + ":00" + "  " + "</p>" + random2}</div>`);
             list_divhourtasks.push("divhourtask" + hour);  
         }
         else if(10<hour && 21>=hour && number!=today && random1==0 || 10<hour && 21>=hour && number==today && month != d2.getMonth()+1 && year && random1==0) {
