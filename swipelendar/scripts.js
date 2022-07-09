@@ -48,11 +48,11 @@ function dayview(number, number2) {
         }
 
         else if(now+1<hour &&hour==18 && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && number%2==0) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hourdinner"${` id="divhourtask` + hour + `";>` + `<p style="color:black";>` + previous + ":00" + "-" + hour + ":00" + "  " + "</p>" + `<a href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`);
+            etasks.insertAdjacentHTML("beforeend", `<div class="hourdinner"${` id="divhourtask` + hour + `";>` + `<p style="color:black";>` + previous + ":00" + "-" + hour + ":00" + "  " + "</p>" + `<a style="color:blue" href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`);
             list_divhourtasks.push("divhourtask" + hour);         
         }
         else if(hour==18 && number!=today && number%2==0 || hour==18 && number==today && month != d2.getMonth()+1 && number%2==0 ) {
-            etasks.insertAdjacentHTML("beforeend", `<div class="hourdinner"${` id="divhourtask` + hour + `";>` + `<p style="color:black";>` + previous + ":00" + "-" + hour + ":00" + "  " + "</p>" + `<a href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`);
+            etasks.insertAdjacentHTML("beforeend", `<div class="hourdinner"${` id="divhourtask` + hour + `";>` + `<p style="color:black";>` + previous + ":00" + "-" + hour + ":00" + "  " + "</p>" + `<a style="color:blue" href="https://kisyys.github.io/kasvis/">Plan a dinner</a>`}</div>`);
             list_divhourtasks.push("divhourtask" + hour);           
         }
         else if(now+1<hour && 10<hour && 21>=hour && number==today && month == d2.getMonth()+1 && year == d2.getFullYear() && random3==0) {
