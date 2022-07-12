@@ -39,7 +39,7 @@ function dayview(number, number2) {
     var x =0;
     var dayName2 = days2[number2];
     const topic = document.querySelector("#tasks0");
-    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test13" +  "</b>"}</div>`);
+    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test14" +  "</b>"}</div>`);
 
     const etasks = document.querySelector("#tasks1");
 
