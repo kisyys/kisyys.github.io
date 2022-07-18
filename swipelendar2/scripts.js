@@ -57,6 +57,26 @@ else {
     var list_divhourtasks_history = JSON.parse(localStorage.getItem("divhourtasks_history"));
 }
 
+function bugs() {
+
+    document.getElementById("app-calendar1").innerHTML = "";
+    document.getElementById("app-calendar2").innerHTML = "";
+    document.getElementById("p0").innerHTML = "";
+    document.getElementById("p1").innerHTML = "";
+    document.getElementById("p2").innerHTML = "";
+    document.getElementById("tasks0").innerHTML = "";
+    document.getElementById("tasks01").innerHTML = "";
+    document.getElementById("tasks00").innerHTML = "";
+    document.getElementById("tasks001").innerHTML = "";
+    document.getElementById("month_year").innerHTML = "";
+    document.getElementById("tasks1").innerHTML = "";
+    document.getElementById("tasks2").innerHTML = "";
+    document.getElementById("tasks00").innerHTML = history2.join('<br/>');
+    document.getElementById("tasks001").innerHTML = special_tasks.join('<br/>');
+
+}
+
+
 function tasks(){
     display = 1;
     document.getElementById("p0").innerHTML = "";
