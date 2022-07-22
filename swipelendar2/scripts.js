@@ -956,7 +956,7 @@ function dayview(number, number2) {
                 /* left swipe */
                 var numb = 0;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && content.includes("<del>"))  {                
                     undone(numb);
                 }
               
@@ -964,7 +964,7 @@ function dayview(number, number2) {
                 /* right swipe */
                 var numb = 0;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && !content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -997,7 +997,7 @@ function dayview(number, number2) {
                 /* left swipe */
                 var numb = 1;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && content.includes("<del>"))  {                
                     undone(numb);
                 }
               
@@ -1005,7 +1005,7 @@ function dayview(number, number2) {
                 /* right swipe */
                 var numb = 1;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && !content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -1038,7 +1038,7 @@ function dayview(number, number2) {
                 /* left swipe */
                 var numb = 2;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && content.includes("<del>"))  {                
                     undone(numb);
                 }
               
@@ -1046,7 +1046,7 @@ function dayview(number, number2) {
                 /* right swipe */
                 var numb = 2;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && !content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -1079,7 +1079,7 @@ function dayview(number, number2) {
                 /* left swipe */
                 var numb = 3;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && content.includes("<del>"))  {                
                     undone(numb);
                 }
               
@@ -1087,7 +1087,7 @@ function dayview(number, number2) {
                 /* right swipe */
                 var numb = 3;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && !content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -1120,7 +1120,7 @@ function dayview(number, number2) {
                 /* left swipe */
                 var numb = 4;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && content.includes("<del>"))  {                
                     undone(numb);
                 }
               
@@ -1128,7 +1128,7 @@ function dayview(number, number2) {
                 /* right swipe */
                 var numb = 4;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && !content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -1161,7 +1161,7 @@ function dayview(number, number2) {
                 /* left swipe */
                 var numb = 5;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && content.includes("<del>"))  {                
                     undone(numb);
                 }
               
@@ -1169,7 +1169,7 @@ function dayview(number, number2) {
                 /* right swipe */
                 var numb = 5;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && !content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -1202,7 +1202,7 @@ function dayview(number, number2) {
                 /* left swipe */
                 var numb = 6;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && content.includes("<del>"))  {                
                     undone(numb);
                 }
               
@@ -1210,7 +1210,7 @@ function dayview(number, number2) {
                 /* right swipe */
                 var numb = 6;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && !content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
@@ -1243,7 +1243,7 @@ function dayview(number, number2) {
                 /* left swipe */
                 var numb = 7;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && content.includes("<del>"))  {                
                     undone(numb);
                 }
               
@@ -1251,7 +1251,7 @@ function dayview(number, number2) {
                 /* right swipe */
                 var numb = 7;
                 var content = document.getElementById(list_divhourtasks[numb]).innerHTML;
-                if(display == 1 && !content.includes("<del>") && date66[0]==today && date66[1] == d2.getmonth()+1 && date66[2] == d2.getfullyear())  {                
+                if(display == 1 && !content.includes("<del>"))  {                
                     done(numb);
                 }
                 
