@@ -474,7 +474,7 @@ function dayview(number, number2) {
     const back = document.querySelector("#p0");
     back.insertAdjacentHTML("beforeend", `<p id="p0" style="text-align:left" onclick="back(0)"> <b> Back to calendar </b> </p>`);
     const topic = document.querySelector("#tasks0");
-    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test37" +  "</b>"}</div>`);
+    topic.insertAdjacentHTML("beforeend", `<div class="topic";> ${ "<b>" +  dayName2 + " - Test38" +  "</b>"}</div>`);
     const etasks = document.querySelector("#tasks1");
 
     for(let i = 0; i<history2.length; i++) {
