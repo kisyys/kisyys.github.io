@@ -151,7 +151,7 @@ function stats() {
     }
 
     const scores = document.querySelector("#tasks0");
-    scores.insertAdjacentHTML("beforeend",  "<b> Today's score: " + today_score + "/" + today_possible + "</b> <br>" + "<b> This week's score " + thisweek_score + "/" + thisweek_possible + "</b> <br>" + "<b> Total score: " + score_total + "</b> <br>" );
+    scores.insertAdjacentHTML("beforeend",  "<b> Today's score: " + today_score + "/" + today_possible + "</b> <br>" + "<b> This week's score: " + thisweek_score + "/" + thisweek_possible + "</b> <br>" + "<b> Total score: " + score_total + "</b> <br>" );
 
     const status = document.querySelector("#tasks01");
 
