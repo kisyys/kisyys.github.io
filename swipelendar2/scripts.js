@@ -923,7 +923,7 @@ function dayview(number, number2) {
     var date66 = date6.split("/");
 
 
-    done(0);
+    //done(0);
 
     // document.getElementById("p11").innerHTML = "";
     // const doit = document.querySelector("#p11");
