@@ -2,7 +2,7 @@ var y = 0;
 
 let lista = []
 
-let ruuat = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki", "Sienikastike", "Vihis", "Pasta carbonara", "Gochujang-nuudelit"]
+let ruuat = ["Linssicurry", "Nakkikeitto", "Bolognesekastike", "Lasagnette", "Pyttipannu", "Intialainen pinaattikastike", "Makaronilaatikko", "Chana masala", "Meksikolainen papukastike", "Palsternakkakeitto", "Seitan-chorizopasta", "Wokki", "Sienikastike", "Vihis", "Pasta carbonara", "Gochujang-nuudelit", "Feta-basilika-aurinkokuivattutomaatti-piirakka", "Juustoinen parsakaalipasta", "Vihreämpi tofu limonello", "Gyros", "Hernekeitto"]
 ruuat.sort();
 
 let ruuat2 = []
@@ -58,24 +58,68 @@ function home() {
 	const start = document.querySelector(".container");
 
 	for(let n = 0; n < ruuat.length; n++) {
-		start.insertAdjacentHTML("beforeend", 
-		`<div class="row" style="min-height:450px;"  style="margin:auto;">		
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic${n}" src="${ruuat[n]}.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meals(${n})" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p${n}" style="text-align:center">
-					<b> ${ruuat[n]} </b>					
-					</p>	
-				</div>
-				
-				<div class="col-sm-5" style="margin:auto;">
-					<img id="pic${n+1}" src="${ruuat[n+1]}.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meals(${n+1})" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
-					<p id="p${n+1}" style="text-align:center">
-					<b> ${ruuat[n+1]} </b>					
-					</p>	
-				</div>
-		</div>`
-		);
-		n++;
+
+		if(ruuat.length%2==0) {
+			start.insertAdjacentHTML("beforeend", 
+			`<div class="row" style="min-height:450px;"  style="margin:auto;">		
+					<div class="col-sm-5" style="margin:auto;">
+						<img id="pic${n}" src="${ruuat[n]}.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meals(${n})" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+						<p id="p${n}" style="text-align:center">
+						<b> ${ruuat[n]} </b>					
+						</p>	
+					</div>
+					
+					<div class="col-sm-5" style="margin:auto;">
+						<img id="pic${n+1}" src="${ruuat[n+1]}.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meals(${n+1})" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+						<p id="p${n+1}" style="text-align:center">
+						<b> ${ruuat[n+1]} </b>					
+						</p>	
+					</div>
+			</div>`
+			);
+			n++;
+
+		} else {
+			if(n==ruuat.length-1) {
+				console.log("hei");
+				start.insertAdjacentHTML("beforeend", 
+				`<div class="row" style="min-height:450px;"  style="margin:auto;">		
+						<div class="col-sm-5" style="margin:auto;">
+							<img id="pic${n}" src="${ruuat[n]}.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meals(${n})" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+							<p id="p${n}" style="text-align:center">
+							<b> ${ruuat[n]} </b>					
+							</p>	
+						</div>
+						<div class="col-sm-5" style="margin:auto;">	
+						</div>
+				</div>`
+
+
+				);
+				n++;
+			} else {
+				start.insertAdjacentHTML("beforeend", 
+				`<div class="row" style="min-height:450px;"  style="margin:auto;">		
+						<div class="col-sm-5" style="margin:auto;">
+							<img id="pic${n}" src="${ruuat[n]}.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meals(${n})" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+							<p id="p${n}" style="text-align:center">
+							<b> ${ruuat[n]} </b>					
+							</p>	
+						</div>
+						
+						<div class="col-sm-5" style="margin:auto;">
+							<img id="pic${n+1}" src="${ruuat[n+1]}.jpg" alt="" class="img-fluid" style="width:90%;" style="height:90%;" onclick="meals(${n+1})" onmouseover="bigImg(this)" onmouseout="normalImg(this)">
+							<p id="p${n+1}" style="text-align:center">
+							<b> ${ruuat[n+1]} </b>					
+							</p>	
+						</div>
+				</div>`
+				);
+
+			}
+		
+			n++;
+		}	
 	}
 }
 
@@ -336,6 +380,82 @@ function meals(meal_number) {
 		clear()
 
 	}
+
+	if(ruuat[meal_number]=="Hernekeitto") {
+	
+		document.getElementById("food1").innerHTML = "Hernekeitto";
+		document.getElementById("food2").innerHTML = "Hernekeitto";
+
+		document.getElementById("instructions").innerHTML =
+
+		"6 annosta / 12 tuntia <br> <br> <b> Aineet </b> <br>  <input type=checkbox id=Hernekeitto_tick0 value=500g&nbsp;herneitä> 500g herneitä <br><input type=checkbox id=Hernekeitto_tick1 value=2&nbsp;½&nbsp;l&nbsp;vettä> 2 ½ l vettä <br><input type=checkbox id=Hernekeitto_tick2 value=1&nbsp;sipuli> 1 sipuli <br><input type=checkbox id=Hernekeitto_tick3 value=2&nbsp;kasvisliemikuutio> 2 kasvisliemikuutio <br><input type=checkbox id=Hernekeitto_tick4 value=2&nbsp;laakerinlehteä> 2 laakerinlehteä <br><input type=checkbox id=Hernekeitto_tick5 value=½&nbsp;rkl&nbsp;kokonaisia&nbsp;mustapippureita> ½ rkl kokonaisia mustapippureita <br><input type=checkbox id=Hernekeitto_tick6 value=300&nbsp;g&nbsp;tofua&nbsp;(kylmäsavu)> 300 g tofua (kylmäsavu) <br><input type=checkbox id=Hernekeitto_tick7 value=½&nbsp;dl&nbsp;rypsiöljyä> ½ dl rypsiöljyä <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Huuhtele herneet huolellisesti. Kaada herneet kattilaan ja mittaa kylmä vesi päälle. Anna liota n. 10h. <br>  <br> Siirrä kattila liedelle ja kiehauta. Kuori vaahto pois. <br>  <br> Kuori ja pilko sipuli ja lisää kattilaan. Lisää myös kasvisliemikuutiot, laakerinlehdet ja mustapippurit. Laske hieman lämpötilaa. Anna keiton poreilla n. 1½ h. <br>  <br> Kun keitto alkaa sakeutua, laske lämpötilaa ja sekoittele välillä. <br>  <br> Kuutioi ja kuivaa tofu. Paista rapeaksi pannulla ja lisää keittoon. <br>  <br> Yllä oleva resepti on muokattu alkuperäisestä reseptistä, joka on löydetty: https://vegaaninruokavuosi.com/2019/03/26/taytelainen-hernekeitto-g/ <br>  <br>  <br>  <br> ";
+
+		document.getElementById("pic00").src = "Hernekeitto.jpg";
+
+		clear();
+
+	}
+
+	if(ruuat[meal_number]=="Gyros") {
+	
+		document.getElementById("food1").innerHTML = "Gyros";
+		document.getElementById("food2").innerHTML = "Gyros";
+
+		document.getElementById("instructions").innerHTML =
+
+		"4 annosta / 45 minuuttia <br> <br> <b> Aineet </b> <br>  <input type=checkbox id=Gyros_tick0 value=300&nbsp;g&nbsp;Veganes&nbsp;Gyros&nbsp;(Vemondo&nbsp;-&nbsp;Lidl)> 300 g Veganes Gyros (Vemondo - Lidl) <br><input type=checkbox id=Gyros_tick1 value=2&nbsp;dl&nbsp;Tzatziki&nbsp;(Milbona&nbsp;-&nbsp;Lidl)> 2 dl Tzatziki (Milbona - Lidl) <br><input type=checkbox id=Gyros_tick2 value=3&nbsp;dl&nbsp;riisiä> 3 dl riisiä <br><input type=checkbox id=Gyros_tick3 value=rypsiöljyä&nbsp;paistamiseen> rypsiöljyä paistamiseen <br><input type=checkbox id=Gyros_tick4 value=hippunen&nbsp;suolaa> hippunen suolaa <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Lisää hippusellinen suolaa keitin veteen ja keitä riisi ohjeen mukaan. <br>  <br> Paista Gyros ohjeen mukaan. <br>  <br> Tee mieleisesi salaatti oheeseen ja nauti gyros riisin ja tzatzikin kanssa. <br>  <br>  <br>  <br> ";
+
+		document.getElementById("pic00").src = "Gyros.jpg";
+
+		clear();
+
+	}
+
+	if(ruuat[meal_number]=="Vihreämpi tofu limonello") {
+	
+		document.getElementById("food1").innerHTML = "Vihreämpi tofu limonello";
+		document.getElementById("food2").innerHTML = "Vihreämpi tofu limonello";
+
+		document.getElementById("instructions").innerHTML =
+
+		"4 annosta / 60 minuuttia <br> <br> <b> Aineet </b> <br>  <input type=checkbox id=Vihreämpi_tofu_limonello_tick0 value=275&nbsp;g&nbsp;maustamatonta&nbsp;tofua> 275 g maustamatonta tofua <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick1 value=2&nbsp;rkl&nbsp;oliiviöljyä> 2 rkl oliiviöljyä <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick2 value=¼&nbsp;tl&nbsp;mustapippuria> ¼ tl mustapippuria <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick3 value=½&nbsp;tl&nbsp;sipulijauhetta> ½ tl sipulijauhetta <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick4 value=ripaus&nbsp;suolaa> ripaus suolaa <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick5 value=1&nbsp;prk&nbsp;/&nbsp;2&nbsp;dl&nbsp;kaurakermaa> 1 prk / 2 dl kaurakermaa <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick6 value=1&nbsp;rkl&nbsp;kasvisfondia> 1 rkl kasvisfondia <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick7 value=1&nbsp;tl&nbsp;kurkumaa> 1 tl kurkumaa <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick8 value=2&nbsp;valkosipulin&nbsp;kynttä> 2 valkosipulin kynttä <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick9 value=1&nbsp;rkl&nbsp;tuoretta&nbsp;inkivääriä&nbsp;raastettuna> 1 rkl tuoretta inkivääriä raastettuna <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick10 value=½&nbsp;sitruunan&nbsp;kuori&nbsp;raastettuna> ½ sitruunan kuori raastettuna <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick11 value=2&nbsp;rkl&nbsp;sitruunamehua> 2 rkl sitruunamehua <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick12 value=1-2&nbsp;rkl&nbsp;siirappia> 1-2 rkl siirappia <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick13 value=2&nbsp;dl&nbsp;kaurafraichea> 2 dl kaurafraichea <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick14 value=1&nbsp;ps&nbsp;/&nbsp;80&nbsp;g&nbsp;babypinaattia> 1 ps / 80 g babypinaattia <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick15 value=100&nbsp;g&nbsp;vihreitä&nbsp;papuja&nbsp;(pakaste)> 100 g vihreitä papuja (pakaste) <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick16 value=4&nbsp;dl&nbsp;pastaa> 4 dl pastaa <br><input type=checkbox id=Vihreämpi_tofu_limonello_tick17 value=1&nbsp;pieni&nbsp;ruukku&nbsp;lehtipersiljaa> 1 pieni ruukku lehtipersiljaa <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Kuivaa ja kuutioi tofu. Hienonna valkosipulinkynnet ja raasta inkivääri ja sitruuna. Kuumenna pannu ja lisää öljy. Ruskista tofu ja mausta se mustapippurilla, sipulijauheella ja suolalla. <br>  <br> Sekoita joukkoon kaurakerma ja kasvisfondi. Hauduta hetki. <br>  <br> Keitä pasta pakkauksen ohjeen mukaan suolalla maustetussa vedessä. <br>  <br> Lisää kastikkeeseen kurkuma, inkivääri, sitruunan kuori, valkosipuli, sitruunamehu, siirappi ja kaurafraiche. Lisää pinaatti pannulle ja hauduttele, kunnes pinaatti on pehmennyt. Lisää vielä jäiset pavut ja jatka hauduttelua, kunnes pavut ovat sulaneet. <br>  <br> Sekoita kastike valutetun pastan joukkoon. Lisää joukkoon reilusti tuoretta persiljaa. <br>  <br> Yllä oleva resepti on muokattu alkuperäisestä reseptistä, joka on löydetty: https://chocochili.net/2022/01/vihreampi-tofu-limonello/ <br>  <br>  <br>  <br> ";
+
+		document.getElementById("pic00").src = "Vihreämpi tofu limonello.jpg";
+
+		clear();
+
+	}
+
+	if(ruuat[meal_number]=="Juustoinen parsakaalipasta") {
+	
+		document.getElementById("food1").innerHTML = "Juustoinen parsakaalipasta";
+		document.getElementById("food2").innerHTML = "Juustoinen parsakaalipasta";
+
+		document.getElementById("instructions").innerHTML =
+
+		"4 annosta / 60 minuuttia <br> <br> <b> Aineet </b> <br>  <input type=checkbox id=Juustoinen_parsakaalipasta_tick0 value=4&nbsp;dl&nbsp;pastaa> 4 dl pastaa <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick1 value=1&nbsp;parsakaali> 1 parsakaali <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick2 value=50&nbsp;g&nbsp;Emmental&nbsp;juustoraastetta> 50 g Emmental juustoraastetta <br> <br> <b> Tofutäyte </b> <br> <input type=checkbox id=Juustoinen_parsakaalipasta_tick3 value=1&nbsp;½&nbsp;dl&nbsp;cashewpähkinöitä&nbsp;+&nbsp;2&nbsp;dl&nbsp;vettä> 1 ½ dl cashewpähkinöitä + 2 dl vettä <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick4 value=1&nbsp;pkt&nbsp;maustamatonta&nbsp;tofua&nbsp;(250-270&nbsp;g)> 1 pkt maustamatonta tofua (250-270 g) <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick5 value=5&nbsp;öljyyn&nbsp;säilöttyä&nbsp;aurinkokuivattua&nbsp;tomaattia> 5 öljyyn säilöttyä aurinkokuivattua tomaattia <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick6 value=3&nbsp;valkosipulinkynttä> 3 valkosipulinkynttä <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick7 value=(2&nbsp;rkl&nbsp;ravintohiivahiutaleita)> (2 rkl ravintohiivahiutaleita) <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick8 value=½&nbsp;pienen&nbsp;sitruunan&nbsp;mehu> ½ pienen sitruunan mehu <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick9 value=½&nbsp;dl&nbsp;kylmäpuristettua&nbsp;oliiviöljyä> ½ dl kylmäpuristettua oliiviöljyä <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick10 value=½&nbsp;tl&nbsp;suolaa> ½ tl suolaa <br> <br> <b> Juustokuorrute </b> <br> <input type=checkbox id=Juustoinen_parsakaalipasta_tick11 value=100&nbsp;g&nbsp;Emmental&nbsp;juustoraastetta> 100 g Emmental juustoraastetta <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick12 value=2&nbsp;dl&nbsp;kaurakermaa> 2 dl kaurakermaa <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick13 value=1&nbsp;tl&nbsp;sipulijauhetta> 1 tl sipulijauhetta <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick14 value=½&nbsp;tl&nbsp;valkosipulijauhetta> ½ tl valkosipulijauhetta <br><input type=checkbox id=Juustoinen_parsakaalipasta_tick15 value=mustapippuria&nbsp;myllystä> mustapippuria myllystä <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Laita uuni kuumenemaan (200°C). <br>  <br> Pilko parsakaali pieniksi suupaloiksi. Laita pastavesi kiehumaan ja keitä pasta pakkauksen ohjeen mukaan. Lisää parsakaalit kattilaan pastan joukkoon viimeiseksi minuutiksi ja valuta vesi pois. <br>  <br> Valmista tofutäyte sillä välin kun pasta kiehuu. Mittaa kulhoon cashewpähkinät ja vesi ja kuumenna mikrossa täydellä teholla 3 minuuttia (tai kiehauta kattilassa). Kaada vesi pois. Murustele tofu korkeareunaiseen kulhoon. Lisää cashewpähkinät ja kaikki loput aineet ja soseuta sauvasekoittimella massaksi. <br>  <br> Valmista juustokuorrute tässä välissä sekoittamalla kaikki kuorrutteen aineet yhteen. Säästä 50 g juustoraastetta vuokaa varten. <br>  <br> Sekoita uunivuoassa yhteen keitetty pasta, parsakaalit, tofutäyte ja 50 g juustoraastetta. Levitä uunivuoan pinnalle juustokuorrute ja paista uunissa noin 20 minuuttia. Siirrä vuoka tarvittaessa hetkeksi grillivastuksen alle, niin saat siihen kauniin ruskistuneen pinnan. <br>  <br> Yllä oleva resepti on muokattu alkuperäisestä reseptistä, joka on löydetty: https://chocochili.net/2021/01/juustoinen-parsakaalipasta/ <br>  <br>  <br>  <br> ";
+
+		document.getElementById("pic00").src = "Juustoinen parsakaalipasta.jpg";
+
+		clear();
+
+	}
+
+	if(ruuat[meal_number]=="Feta-basilika-aurinkokuivattutomaatti-piirakka") {
+	
+		document.getElementById("food1").innerHTML = "Feta-basilika-aurinkokuivattutomaatti-piirakka";
+		document.getElementById("food2").innerHTML = "Feta-basilika-aurinkokuivattutomaatti-piirakka";
+
+		document.getElementById("instructions").innerHTML =
+
+		"4-6 annosta / 90 minuuttia <br> <br> <b> Aineet </b> <br>  <br> <b> Pohja </b> <br> <input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick0 value=150g&nbsp;voita> 150g voita <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick1 value=3&nbsp;dl&nbsp;vehnäjauhoja> 3 dl vehnäjauhoja <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick2 value=0,5&nbsp;dl&nbsp;vettä> 0,5 dl vettä <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick3 value=1&nbsp;tl&nbsp;suolaa> 1 tl suolaa <br> <br> <b> Täyte </b> <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick4 value=3&nbsp;kananmunaa> 3 kananmunaa <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick5 value=2&nbsp;dl&nbsp;(kevyt)kermaa> 2 dl (kevyt)kermaa <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick6 value=150&nbsp;g&nbsp;vahvaa&nbsp;juustoraastetta&nbsp;(esim.&nbsp;Emmental)> 150 g vahvaa juustoraastetta (esim. Emmental) <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick7 value=125&nbsp;g&nbsp;fetaa&nbsp;(salaattijuustoa)> 125 g fetaa (salaattijuustoa) <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick8 value=n.&nbsp;5&nbsp;aurinkokuivattuatomaattia> n. 5 aurinkokuivattuatomaattia <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick9 value=kourallinen&nbsp;basilikanlehtiä> kourallinen basilikanlehtiä <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick10 value=mustaapippuria> mustaapippuria <br><input type=checkbox id=Feta-basilika-aurinkokuivattutomaatti-piirakkaa_tick11 value=suolaa> suolaa <br> <br> <button onclick=lisaaListaan()>Lisää listaan</button> <br> <br> <br> <b> Valmistusohje </b> <br> Valmista ensin pohja. Leikkaa todella kylmä voi kuutioiksi ja laita isoon kulhoon. Kaada voikuutioiden päälle suola ja vehnäjauhot. <br>  <br> Nypi voi ja jauhot sekaisin kunnes koostumus on murumaista.  <br>  <br> Lisää sekaan vesi ja vaivaa nopeasti taikina tasaiseksi. Älä vaivaa liikaa ettei taikinaan ala muodostumaan gluteiinia (elastisuutta). Taikinan tulee säilyä muromaisena eikä leipämaisena. <br>  <br> Kun taikina on valmis, levitä taikina piirakkavuokaan (n. 24cm) kostutetuin sormin. Muista myös reunat. <br>  <br> Laita taikinapiirakkavuoka pakkaseen siksi aikaa kun uuni kuumenee 200 asteeseen. <br>  <br> Esipaista pohjaa uunin alimmalla tasolla 200 asteessa 10-15 minuuttia kunnes pohja on saanut hieman väriä on kauniin kullan ruskea. <br>  <br> Valmista täyte sillä välin kun pohja on esipaistumassa. <br>  <br> Sekoita kulhossa kananmunat ja kerma keskenään hyvin sekaisin. Mausta suolalla ja mustallapippurilla. <br>  <br> Leikkaa aurinkokuivatut tomaatit ja basilikan lehdet pienemmiksi paloiksi ja lisää seokseen.  Lisää juustoraaste seokseen ja sekoita hyvin. <br>  <br> Kaada seos esipaistetun pohjan päälle tasaisesti. Murustele feta pinnalle. <br>  <br> Paista piirakkaa 200 asteisessa uunissa alatasolla n. 20-25 minuuttia kunnes pinta on saanut kaunista väriä. <br>  <br> Yllä oleva resepti on muokattu alkuperäisestä reseptistä, joka on löydetty: http://ruokasurffausta.blogspot.com/2014/06/pellillinen-feta-basilika.html <br>  <br>  <br>  <br> ";
+
+		document.getElementById("pic00").src = "Feta-basilika-aurinkokuivattutomaatti-piirakka.jpg";
+
+		clear();
+
+	}
+
 
 }
 
