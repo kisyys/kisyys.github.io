@@ -13,17 +13,26 @@ const Statistics = (props) => {
       <StatisticLine text="Neutral" value={props.neutral}/>
       <StatisticLine text="Bad" value={props.bad}/>
       <StatisticLine text="All" value={props.good + props.bad + props.neutral}/>
-      <StatisticLine text="Average" value={(props.good*1 + props.neutral*0 + props.bad*(-1))/(props.good + props.neutral + props.bad)}/>
-      <StatisticLine text="Positive" value={props.good/(props.good + props.neutral + props.bad)*100}/>
+      <StatisticLine text="Average" value={((props.good*1 + props.neutral*0 + props.bad*(-1))/(props.good + props.neutral + props.bad)).toFixed(1)}/>
+      <StatisticLine text="Positive" value={(props.good/(props.good + props.neutral + props.bad)*100).toFixed(1) + " %"}/> 
     </div>
   ) 
 }
 
 const StatisticLine = (props) => {
   return (
-    <p>
-      {props.text} {props.value}
-    </p>
+    <table>
+      <tbody>
+        <tr>
+          <td width="70px">
+            {props.text}
+          </td>
+          <td>
+            {props.value}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   ) 
 }
 
