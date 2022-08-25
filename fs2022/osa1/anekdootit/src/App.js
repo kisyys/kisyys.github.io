@@ -7,6 +7,8 @@ const Button = (props) => (
 )
 
 let index = 0
+let index2 = 0
+let most = 0
 
 const App = () => {
   const anecdotes = [
@@ -29,20 +31,35 @@ const App = () => {
     setSelected(random)
     index = random
   }
+
   
   const updatePoints = () => {
     copy[index] +=1 
-    setPoints(copy);
+    setPoints(copy)
+    console.log(copy.length)   
+  }
+
+  for(let i = 0; i<copy.length;i++) { 
+    if(copy[i]>most) {
+      most = copy[i]
+      index2 = i
+    }
   }
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]}
       <br></br>
-      <Button handleClick={() => updatePoints()} text="Vote" />    
-      <Button handleClick={() => getAnecdote()} text="Next anecdote" />
+      <Button handleClick={() => updatePoints()} text="vote" />    
+      <Button handleClick={() => getAnecdote()} text="next anecdote" />
       <br></br>
-      Has {copy[index]} votes
+      has {copy[index]} votes
+      <h1>Anecdote with most votes</h1>
+      {anecdotes[index2]}
+      <br></br>
+      has {copy[index2]} votes
+
     </div>
   )
 }
