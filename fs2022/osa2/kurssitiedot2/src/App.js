@@ -26,13 +26,13 @@ const Content = (props) => {
 
 const Part = (props) => {
   return (
-    <p>
+    <div>
       {props.p.map(p1 => 
         <p key={p1.id}>
           {p1.name} {p1.exercises}
         </p>
         )}
-    </p>
+    </div>
   )
 }
 
