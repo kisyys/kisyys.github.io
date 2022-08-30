@@ -1,12 +1,3 @@
-const Courses = (props) => {
-  return (
-    <div>
-      <h1>Web development curriculum</h1>
-      <Course courses={props.courses}/>
-    </div>
-  )
-}
-
 const Course = (props) => {
   return (
     <div>
@@ -75,7 +66,8 @@ const App = () => {
 
   return (
     <div>
-      <Courses courses={courses}  />
+      <h1>Web development curriculum</h1>
+      <Course courses={courses}  />
     </div>
   )
 }
