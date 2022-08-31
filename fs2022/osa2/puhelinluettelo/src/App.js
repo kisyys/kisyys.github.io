@@ -37,10 +37,11 @@ const App = () => {
       </form>
       <h2>Numbers</h2>
       {persons.map(person => 
-        <p>
-          {person.name}
-        </p>
-
+        <div key={person.name}>
+          <p>
+            {person.name}
+          </p>
+        </div>
       )}
     </div>
   )
