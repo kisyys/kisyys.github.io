@@ -39,11 +39,9 @@ const PersonForm = (props) => {
 }
 
 const App = () => {
-  const [persons, setPersons] = useState([])
-  
+  const [persons, setPersons] = useState([]) 
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
-
   const [showAll, setShowAll] = useState('')
 
   useEffect(() => {
@@ -56,17 +54,30 @@ const App = () => {
 
   const addContact = (event) => {
     if(persons.find(element => element.name === newName)) {
-        alert(`${newName} is already added to phonebook`)
+      let isExecuted = window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)
+      
+      if(isExecuted===true) {
+          event.preventDefault() 
+          const person = persons.find(n => n.name === newName)
+          const changedContact = { ...person, number: newNumber}
+          contactService
+          .update(person.id, changedContact)
+            .then(returnedContact => {
+            setPersons(persons.map(person2 => person2.id !== person.id ? person2 : returnedContact))
+          })
+          setNewName('')
+          setNewNumber('')
+      } else {
         event.preventDefault()
         setNewName('')
         setNewNumber('')
+      }
     } else {
       event.preventDefault()
       const contactObject = {
         name: newName,
         number: newNumber
       }
-
       contactService
       .create(contactObject)
       .then(returnedContact => {
@@ -107,7 +118,6 @@ const App = () => {
   ? persons
   : persons.filter(person => person.name.toLowerCase().includes(showAll.toLowerCase()))
 
-
   return (
     <div>
       <h2>Phonebook</h2>
@@ -118,7 +128,6 @@ const App = () => {
       <Persons contactsToShow={contactsToShow} deleteContact={deleteContact}/>
     </div>
   )
-
 }
 
 export default App
