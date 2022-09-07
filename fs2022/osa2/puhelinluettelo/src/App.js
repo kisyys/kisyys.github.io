@@ -7,7 +7,7 @@ const Persons = (props) => {
       {props.contactsToShow.map(person => 
         <div key={person.name}>
           <p>
-            {person.name} {person.number}
+            {person.name} {person.number} <button onClick={() => props.deleteContact(person.id)}> delete</button>
           </p>
         </div>
       )}
@@ -77,6 +77,19 @@ const App = () => {
     }   
   }
 
+  const deleteContact = id => {
+    const person = persons.find(n => n.id === id)
+    let isExecuted = window.confirm(`Delete ${person.name} ?`)
+    
+    if(isExecuted===true) {
+      contactService
+      .del(id)
+      .then(() => 
+        setPersons(persons.filter(person => person.id !== id ))
+      ) 
+    }   
+  }
+
   const handleContactChange = (event) => {
     setNewName(event.target.value)   
   }
@@ -102,7 +115,7 @@ const App = () => {
       <h2>Add a new one</h2>
       <PersonForm addContact={addContact} newName={newName} handleContactChange={handleContactChange} newNumber={newNumber} handleContactChange2={handleContactChange2}/>
       <h2>Numbers</h2>
-      <Persons contactsToShow={contactsToShow}/>
+      <Persons contactsToShow={contactsToShow} deleteContact={deleteContact}/>
     </div>
   )
 
