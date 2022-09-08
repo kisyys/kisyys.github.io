@@ -42,7 +42,6 @@ const Notification = (props) => {
   if (props.message === null) {
     return null
   }
-
   return (
     <div className="notification">
       {props.message}
@@ -50,7 +49,16 @@ const Notification = (props) => {
   )
 }
 
-
+const ErrorNotification = (props) => {
+  if (props.errorMessage === null) {
+    return null
+  }
+  return (
+    <div className="errorNotification">
+      {props.errorMessage}
+    </div>
+  )
+}
 
 const App = () => {
   const [persons, setPersons] = useState([]) 
@@ -58,6 +66,7 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [showAll, setShowAll] = useState('')
   const [message, setMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
     contactService
@@ -79,15 +88,25 @@ const App = () => {
           .update(person.id, changedContact)
             .then(returnedContact => {
             setPersons(persons.map(person2 => person2.id !== person.id ? person2 : returnedContact))
-          })
-          setNewName('')
-          setNewNumber('')
-          setMessage(
-            `Number changed for ${newName}`
-          )
-          setTimeout(() => {
-            setMessage(null)
-          }, 2000)
+            setNewName('')
+            setNewNumber('')
+            setMessage(
+              `Number changed for ${newName}`
+            )
+            setTimeout(() => {
+              setMessage(null)
+            }, 2000)
+            })
+            .catch(error => {
+              setNewName('')
+              setNewNumber('')
+              setErrorMessage(
+                `Information of ${newName} has already been removed from server`
+              )
+              setTimeout(() => {
+                setErrorMessage(null)
+              }, 2000)
+            }) 
       } else {
         event.preventDefault()
         setNewName('')
@@ -155,6 +174,7 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
       <Notification message={message} />
+      <ErrorNotification errorMessage={errorMessage} />
       <Filter showAll={showAll} handleContactChange3={handleContactChange3}/>
       <h2>Add a new one</h2>
       <PersonForm addContact={addContact} newName={newName} handleContactChange={handleContactChange} newNumber={newNumber} handleContactChange2={handleContactChange2}/>
