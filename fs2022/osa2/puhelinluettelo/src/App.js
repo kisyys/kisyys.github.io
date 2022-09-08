@@ -38,11 +38,26 @@ const PersonForm = (props) => {
   )
 }
 
+const Notification = (props) => {
+  if (props.message === null) {
+    return null
+  }
+
+  return (
+    <div className="notification">
+      {props.message}
+    </div>
+  )
+}
+
+
+
 const App = () => {
   const [persons, setPersons] = useState([]) 
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [showAll, setShowAll] = useState('')
+  const [message, setMessage] = useState(null)
 
   useEffect(() => {
     contactService
@@ -67,6 +82,12 @@ const App = () => {
           })
           setNewName('')
           setNewNumber('')
+          setMessage(
+            `Number changed for ${newName}`
+          )
+          setTimeout(() => {
+            setMessage(null)
+          }, 2000)
       } else {
         event.preventDefault()
         setNewName('')
@@ -85,6 +106,12 @@ const App = () => {
           setNewName('')
           setNewNumber('')
       })
+      setMessage(
+        `Added ${newName}`
+      )
+      setTimeout(() => {
+        setMessage(null)
+      }, 2000)
     }   
   }
 
@@ -97,7 +124,13 @@ const App = () => {
       .del(id)
       .then(() => 
         setPersons(persons.filter(person => person.id !== id ))
-      ) 
+      )
+      setMessage(
+        `Contact ${person.name} deleted`
+      )
+      setTimeout(() => {
+        setMessage(null)
+      }, 2000) 
     }   
   }
 
@@ -121,6 +154,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={message} />
       <Filter showAll={showAll} handleContactChange3={handleContactChange3}/>
       <h2>Add a new one</h2>
       <PersonForm addContact={addContact} newName={newName} handleContactChange={handleContactChange} newNumber={newNumber} handleContactChange2={handleContactChange2}/>
