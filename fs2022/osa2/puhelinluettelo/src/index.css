@@ -7,3 +7,13 @@
     padding: 30px;
     margin-bottom: 30px;
   }
+
+.errorNotification {
+    color: red;
+    background: lightgrey;
+    font-size: 30px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
