@@ -103,6 +103,7 @@ function clear() {
     document.getElementById("tasks001").innerHTML = "";
     document.getElementById("tasks1").innerHTML = "";
     document.getElementById("tasks2").innerHTML = "";
+    document.getElementById("info0").innerHTML = "";
 }
 
 
@@ -113,8 +114,8 @@ function info(){
     document.getElementById("month_year").innerHTML = "Info";
     const back = document.querySelector("#p0");
     back.insertAdjacentHTML("beforeend", `<p id="p0" style="text-align:left" onclick="back(0)"> <b> Back to calendar </b> </p>`);   
-    const rtasks = document.querySelector("#tasks0");
-    rtasks.insertAdjacentHTML("beforeend", `
+    const information = document.querySelector("#info0");
+    information.insertAdjacentHTML("beforeend", `
 	<p>
     <b>Version: </b> Tasklendar 0.5
     </p>
@@ -170,155 +171,6 @@ function info(){
     </ul>
     <br>
     `);
-
-}
-
-
-function stats() {   
-    clear();
-    display = 1;
-
-    document.getElementById("month_year").innerHTML = "Stats";
-    const back = document.querySelector("#p0");
-    back.insertAdjacentHTML("beforeend", `<p id="p0" style="text-align:left" onclick="back(0)"> <b> Back to calendar </b> </p>`);
-
-    var today_score = 0;
-    var today_possible = 0;
-
-    var thisweek_score = 0;
-    var thisweek_possible = 0;
-
-    var thisWeek = "Week "+weekNumber;
-    var thisDay = today + "/" + month + "/" + year;
-    
-    for(let i = 0; i<score_weekly.length; i++) {
-        if(score_weekly[i]==thisWeek) {
-            thisweek_score = score_weekly[i+1];
-            break;
-        }
-    }
-
-    for(let i = 0; i<possible_weekly.length; i++) {
-        if(possible_weekly[i]==thisWeek) {
-            thisweek_possible = possible_weekly[i+1];
-            break;
-        }
-    }
-
-    for(let i = 0; i<score_daily.length; i++) {
-        if(score_daily[i]==thisDay) {
-            today_score = score_daily[i+1];
-            break;
-        }
-    }
-
-    for(let i = 0; i<possible_daily.length; i++) {
-        if(possible_daily[i]==thisDay) {
-            today_possible = possible_daily[i+1];
-            break;
-        }
-    }
-
-    const scores = document.querySelector("#tasks0");
-    scores.insertAdjacentHTML("beforeend",  "<b> Today's score: " + today_score + "/" + today_possible + "</b> <br>" + "<b> This week's score: " + thisweek_score + "/" + thisweek_possible + "</b> <br>" + "<b> Total score: " + score_total + "</b> <br> <br>" + score_weekly);
-
-    const status = document.querySelector("#tasks01");
-
-    if(today_score/today_possible<0.5 || today_score==0) {
-        status.insertAdjacentHTML("beforeend",  "<b> Daily progress: You have not done any tasks :(</b> <br>");
-    }
-    else if(today_score/today_possible==1) {
-        status.insertAdjacentHTML("beforeend",  "<b> Daily progress: All tasks done, you can now relax for today! :)</b> <br> " +  `<img src="makeit2.gif" alt="">` );
-    }
-    else {
-        status.insertAdjacentHTML("beforeend",  "<b> Daily progress: Good progress, keep it up! :)</b> <br>");
-    }
-
-    
-}
-
-function addStats(number,stats) {
-
-    if(stats=="weekly") {
-        var found = 0;
-        var whatWeek = "Week "+weekNumber;
-
-        for(let i = 0; i<score_weekly.length; i++) {
-            if(score_weekly[i]==whatWeek) {
-                score_weekly[i+1] = score_weekly[i+1] + number;
-                found = 1;
-                break;
-            }
-        }
-
-        if(found==0) {
-            score_weekly.push(whatWeek);
-            score_weekly.push(number);
-        }
-
-        localStorage.setItem("weekly_score", JSON.stringify(score_weekly));
-    }
-
-    if(stats=="daily") {
-        var found = 0;
-        var whatDay = today + "/" + month + "/" + year;
-
-        for(let i = 0; i<score_daily.length; i++) {
-            if(score_daily[i]==whatDay) {
-                score_daily[i+1] = score_daily[i+1] + number;
-                found = 1;
-                break;
-            }
-        }
-
-        if(found==0) {
-            score_daily.push(whatDay);
-            score_daily.push(number);
-        }
-
-        localStorage.setItem("daily_score", JSON.stringify(score_daily));
-    }
-
-    if(stats=="weekly_pos") {
-        var found = 0;
-        var whatWeek = "Week "+weekNumber;
-
-        for(let i = 0; i<possible_weekly.length; i++) {
-            if(possible_weekly[i]==whatWeek) {
-                possible_weekly[i+1] = possible_weekly[i+1] + number;
-                found = 1;
-                break;
-            }
-        }
-
-        if(found==0) {
-            possible_weekly.push(whatWeek);
-            possible_weekly.push(number);
-        }
-
-        localStorage.setItem("weekly_possible", JSON.stringify(possible_weekly));
-    }
-
-    if(stats=="daily_pos") {
-        var found = 0;
-        var whatDay = today + "/" + month + "/" + year;
-
-        for(let i = 0; i<possible_daily.length; i++) {
-            if(possible_daily[i]==whatDay) {
-                possible_daily[i+1] = possible_daily[i+1] + number;
-                found = 1;
-                break;
-            }
-        }
-
-        if(found==0) {
-            possible_daily.push(whatDay);
-            possible_daily.push(number);
-        }
-
-        localStorage.setItem("daily_possible", JSON.stringify(possible_daily));
-    }
-    
 }
 
 
@@ -502,6 +354,154 @@ function refresh() {
     else {
         history2 = JSON.parse(localStorage.getItem("day_history"));
     }
+}
+
+
+function stats() {   
+    clear();
+    display = 1;
+
+    document.getElementById("month_year").innerHTML = "Stats";
+    const back = document.querySelector("#p0");
+    back.insertAdjacentHTML("beforeend", `<p id="p0" style="text-align:left" onclick="back(0)"> <b> Back to calendar </b> </p>`);
+
+    var today_score = 0;
+    var today_possible = 0;
+
+    var thisweek_score = 0;
+    var thisweek_possible = 0;
+
+    var thisWeek = "Week "+weekNumber;
+    var thisDay = today + "/" + month + "/" + year;
+    
+    for(let i = 0; i<score_weekly.length; i++) {
+        if(score_weekly[i]==thisWeek) {
+            thisweek_score = score_weekly[i+1];
+            break;
+        }
+    }
+
+    for(let i = 0; i<possible_weekly.length; i++) {
+        if(possible_weekly[i]==thisWeek) {
+            thisweek_possible = possible_weekly[i+1];
+            break;
+        }
+    }
+
+    for(let i = 0; i<score_daily.length; i++) {
+        if(score_daily[i]==thisDay) {
+            today_score = score_daily[i+1];
+            break;
+        }
+    }
+
+    for(let i = 0; i<possible_daily.length; i++) {
+        if(possible_daily[i]==thisDay) {
+            today_possible = possible_daily[i+1];
+            break;
+        }
+    }
+
+    const scores = document.querySelector("#tasks0");
+    scores.insertAdjacentHTML("beforeend",  "<b> Today's score: " + today_score + "/" + today_possible + "</b> <br>" + "<b> This week's score: " + thisweek_score + "/" + thisweek_possible + "</b> <br>" + "<b> Total score: " + score_total + "</b> <br> <br>" + score_weekly);
+
+    const status = document.querySelector("#tasks01");
+
+    if(today_score/today_possible<0.5 || today_score==0) {
+        status.insertAdjacentHTML("beforeend",  "<b> Daily progress: You have not done any tasks :(</b> <br>");
+    }
+    else if(today_score/today_possible==1) {
+        status.insertAdjacentHTML("beforeend",  "<b> Daily progress: All tasks done, you can now relax for today! :)</b> <br> " +  `<img src="makeit2.gif" alt="">` );
+    }
+    else {
+        status.insertAdjacentHTML("beforeend",  "<b> Daily progress: Good progress, keep it up! :)</b> <br>");
+    }
+
+    
+}
+
+function addStats(number,stats) {
+
+    if(stats=="weekly") {
+        var found = 0;
+        var whatWeek = "Week "+weekNumber;
+
+        for(let i = 0; i<score_weekly.length; i++) {
+            if(score_weekly[i]==whatWeek) {
+                score_weekly[i+1] = score_weekly[i+1] + number;
+                found = 1;
+                break;
+            }
+        }
+
+        if(found==0) {
+            score_weekly.push(whatWeek);
+            score_weekly.push(number);
+        }
+
+        localStorage.setItem("weekly_score", JSON.stringify(score_weekly));
+    }
+
+    if(stats=="daily") {
+        var found = 0;
+        var whatDay = today + "/" + month + "/" + year;
+
+        for(let i = 0; i<score_daily.length; i++) {
+            if(score_daily[i]==whatDay) {
+                score_daily[i+1] = score_daily[i+1] + number;
+                found = 1;
+                break;
+            }
+        }
+
+        if(found==0) {
+            score_daily.push(whatDay);
+            score_daily.push(number);
+        }
+
+        localStorage.setItem("daily_score", JSON.stringify(score_daily));
+    }
+
+    if(stats=="weekly_pos") {
+        var found = 0;
+        var whatWeek = "Week "+weekNumber;
+
+        for(let i = 0; i<possible_weekly.length; i++) {
+            if(possible_weekly[i]==whatWeek) {
+                possible_weekly[i+1] = possible_weekly[i+1] + number;
+                found = 1;
+                break;
+            }
+        }
+
+        if(found==0) {
+            possible_weekly.push(whatWeek);
+            possible_weekly.push(number);
+        }
+
+        localStorage.setItem("weekly_possible", JSON.stringify(possible_weekly));
+    }
+
+    if(stats=="daily_pos") {
+        var found = 0;
+        var whatDay = today + "/" + month + "/" + year;
+
+        for(let i = 0; i<possible_daily.length; i++) {
+            if(possible_daily[i]==whatDay) {
+                possible_daily[i+1] = possible_daily[i+1] + number;
+                found = 1;
+                break;
+            }
+        }
+
+        if(found==0) {
+            possible_daily.push(whatDay);
+            possible_daily.push(number);
+        }
+
+        localStorage.setItem("daily_possible", JSON.stringify(possible_daily));
+    }
+    
 }
 
 
@@ -1489,6 +1489,7 @@ function step(number) {
     document.getElementById("tasks001").innerHTML = "";
     document.getElementById("tasks1").innerHTML = "";
     document.getElementById("tasks2").innerHTML = "";
+    document.getElementById("info0").innerHTML = "";
 
     whatMonth(number);
 }
