@@ -119,18 +119,18 @@ function info(){
     <b>Version: </b> Tasklendar 0.5
     </p>
     <p>
-    <b>Purpose: </b> To gamefy different kind of tasks which you would like to achive during a day. Tasks can be related from sports to cleaning. 
+    <b>Purpose: </b> To gamify different kind of tasks which you would like to achieve during a day. Tasks can be related from sports to cleaning. 
     </p>
     <p>
     <b>How: </b> App will generate randomly tasks for you in the today's view between hours of 10-21 based of different tasks lists. You then need to do them if possible and if you have succeeded, you can swipe to right to complete task which will be recorded as a point. Swiping is only working in the touch screen. No alternative yet available.
     <br>
     <br> 
-    In a task menu you can see list of random tasks depending of difficulty. You can add more of those tasks if needed and also you may delete ones you do not need. You can also add special task for certain date and time if needed.   
+    In a task menu you can see list of random tasks depending on difficulty. You can add more of those tasks if needed and you may delete ones you do not need. You can also add special task for certain date and time if needed.   
     <br>
     <br>
     In a stats menu you can track your progress. This is still very basic stats menu so more features will come. 
     </p>
-    <b>Disclaimer: </b> Added tasks, stats and history is save on your browser logal storage, so if you clear the history in your browser, all the created data in logal storage will be cleared also.
+    <b>Disclaimer: </b> Added tasks, stats and history is save on your browser local storage, so if you clear the history in your browser, all the created data in local storage will be cleared. also.
     </p>
 	<br>
     <p>
