@@ -6,10 +6,6 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// const pic1 = document.getElementById("pic1");
-// pic1.width = window.innerWidth/8;
-// pic1.height = window.Screen;
-
 // CollisionCanvas attributes
 const collisionCanvas = document.getElementById("collisionCanvas");
 const collisionCtx = collisionCanvas.getContext("2d");
@@ -27,7 +23,7 @@ let lastTime = 0;
 // Creating Raven class and array
 let ravens = [];
 class Raven {
-    constructor() {
+    constructor(speeder) {
         this.spriteWidth = 200;
         this.spiteHeight = 202;
         this.sizeModifier = Math.random() * 0.4 + 0.4;
@@ -35,7 +31,7 @@ class Raven {
         this.height = this.spiteHeight * this.sizeModifier;
         this.x = canvas.width;
         this.y = Math.random() * (canvas.height - this.height);
-        this.directionX = Math.random() * 2.5 + 1;
+        this.directionX = Math.random() * (2.5 + x2) + (2.0 + x2) ;
         this.directionY = Math.random() * 3 + 2.5;
         this.markedForDeletion = false;
         this.image = new Image();
@@ -168,7 +164,7 @@ drawGameOver = () => {
     else {
         ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2);
         ctx.fillStyle = "blue";
-        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2+2);
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2+2)       
     }
 }
 
@@ -188,6 +184,7 @@ window.addEventListener("click", function(e) {
     });
 });
 
+let x2 = 0;
 // Creating animation
 animate = (timestamp) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -196,7 +193,8 @@ animate = (timestamp) => {
     lastTime = timestamp;
     timeToNextRave += deltatime;
     if(timeToNextRave > ravenInterval) {
-        ravens.push(new Raven());
+        x2+=0.3;
+        ravens.push(new Raven(x2));
         timeToNextRave = 0;
         ravens.sort(function(a,b) {
             return a.width - b.width;
