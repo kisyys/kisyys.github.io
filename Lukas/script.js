@@ -30,7 +30,7 @@ let lastTime = 0;
 // Creating Raven class and array
 let ravens = [];
 class Raven {
-    constructor(speeder) {
+    constructor(x2) {
         this.spriteWidth = 200;
         this.spiteHeight = 202;
         this.sizeModifier = Math.random() * 0.4 + 0.4;
@@ -38,7 +38,7 @@ class Raven {
         this.height = this.spiteHeight * this.sizeModifier;
         this.x = canvas.width;
         this.y = Math.random() * (canvas.height - this.height);
-        this.directionX = Math.random() * (2.5 + x2) + (2.0 + x2) ;
+        this.directionX = Math.random() * (2.5 + x2) + (2.0 + x2);
         this.directionY = Math.random() * 3 + 2.5;
         this.markedForDeletion = false;
         this.image = new Image();
@@ -164,34 +164,46 @@ drawMario = () => {
 drawGameOver = () => {
     ctx.textAlign = "center";
     
-    if(score>9) {
+    if(score>1) {
         ctx.fillStyle = "black";
         ctx.font = "30px Georgia";
-        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2.5);
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2.4);
         ctx.fillText(`Hyvin pelattu Lukas!`, canvas.width/2, canvas.height/2);
         ctx.fillStyle = "blue";
-        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2.5+2);
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2.4+2);
         ctx.fillText(`Hyvin pelattu Lukas!`, canvas.width/2, canvas.height/2+2);
-        ctx.fillStyle = "red";
-        ctx.font = "20px Georgia";
-        ctx.fillText(`Aloita alusta`, canvas.width/2, canvas.height/1.7); 
+        // ctx.fillStyle = "red";
+        // ctx.font = "25px Georgia";
+        // ctx.fillText(`Pelaa uudestaan?`, canvas.width/2, canvas.height/1.6);
+        // let { width } = ctx.measureText("Pelaa uudestaan?");
+        // ctx.fillRect(canvas.width/2-(width/2), canvas.height/1.6+1, width, 2);    
     }
     else {
         ctx.fillStyle = "black";
         ctx.font = "30px Georgia";
         ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2);
         ctx.fillStyle = "blue";
-        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2+2)
-        ctx.fillStyle = "red";
-        ctx.font = "20px Georgia";
-        ctx.fillText(`Aloita alusta`, canvas.width/2, canvas.height/1.6);       
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2+2)      
     }
 
     if(score_best<score) {
         localStorage.setItem("best", score);
-        console.log("fsd");
     }
-    window.addEventListener("click", function(e) {
+
+    setTimeout(again, 1200);
+    setTimeout(refresh2, 1300);
+}
+
+again = () => { 
+    ctx.fillStyle = "red";
+    ctx.font = "25px Georgia?";
+    ctx.fillText(`Pelaa uudestaan?`, canvas.width/2, canvas.height/1.6);
+    let { width } = ctx.measureText("Pelaa uudestaan?");
+    ctx.fillRect(canvas.width/2-(width/2), canvas.height/1.6+1, width, 2);  
+}
+
+refresh2 = () => { 
+    window.addEventListener("click", function() {
         location.reload();
     });
 }
