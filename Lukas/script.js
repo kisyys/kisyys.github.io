@@ -21,7 +21,7 @@ let score = 0;
 let GameOver = false;
 ctx.font = "50px Impact";
 let timeToNextRave = 0;
-let ravenInterval = 1000;
+let ravenInterval = 1200;
 let lastTime = 0;
 
 // Creating Raven class and array
@@ -30,7 +30,7 @@ class Raven {
     constructor() {
         this.spriteWidth = 200;
         this.spiteHeight = 202;
-        this.sizeModifier = Math.random() * 0.4 + 0.2;
+        this.sizeModifier = Math.random() * 0.4 + 0.4;
         this.width = this.spriteWidth * this.sizeModifier;
         this.height = this.spiteHeight * this.sizeModifier;
         this.x = canvas.width;
@@ -140,9 +140,10 @@ class Particle {
 // Creating score counter
 drawScore = () => {
     ctx.fillStyle = "black";
-    ctx.fillText("Lukaksen pisteet: " + score, canvas.width/2.5, 40);
+    ctx.font = "25px Georgia";
+    ctx.fillText("Lukas: " + score, canvas.width/1.5, 40);
     ctx.fillStyle = "white";
-    ctx.fillText("Lukaksen pisteet: " + score, canvas.width/2.5, 45);
+    ctx.fillText("Lukas: " + score, canvas.width/1.5, 42);
 }
 
 
@@ -156,9 +157,19 @@ drawMario = () => {
 drawGameOver = () => {
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
-    ctx.fillText("Peli päättyi, pisteet: "+ score, canvas.width/2, canvas.height/2);
-    ctx.fillStyle = "white";
-    ctx.fillText("Peli päättyi, pisteet: "+ score, canvas.width/2 + 5, canvas.height/2 + 5);
+    ctx.font = "45px Georgia";
+    if(score>9) {
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/3);
+        ctx.fillText(`Hyvin pelattu Lukas!`, canvas.width/2, canvas.height/2);
+        ctx.fillStyle = "blue";
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/3+2);
+        ctx.fillText(`Hyvin pelattu Lukas!`, canvas.width/2, canvas.height/2+2);
+    }
+    else {
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2);
+        ctx.fillStyle = "blue";
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2+2);
+    }
 }
 
 // Creating Event Listener for collision
