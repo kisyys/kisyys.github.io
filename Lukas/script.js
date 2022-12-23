@@ -164,7 +164,7 @@ drawMario = () => {
 drawGameOver = () => {
     ctx.textAlign = "center";
     
-    if(score>1) {
+    if(score>9) {
         ctx.fillStyle = "black";
         ctx.font = "30px Georgia";
         ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2.4);
