@@ -12,6 +12,13 @@ const collisionCtx = collisionCanvas.getContext("2d");
 collisionCanvas.width = window.innerWidth;
 collisionCanvas.height = window.innerHeight;
 
+if(!localStorage.getItem("best"))  {
+    var score_best = 0;
+} 
+else {
+    var score_best = localStorage.getItem("best");
+}
+
 // Other attributes
 let score = 0;
 let GameOver = false;
@@ -137,9 +144,13 @@ class Particle {
 drawScore = () => {
     ctx.fillStyle = "black";
     ctx.font = "25px Georgia";
-    ctx.fillText("Lukas: " + score, canvas.width/1.5, 40);
+    ctx.fillText("Pisteet: " + score, canvas.width/1.5, 40);
     ctx.fillStyle = "white";
-    ctx.fillText("Lukas: " + score, canvas.width/1.5, 42);
+    ctx.fillText("Pisteet: " + score, canvas.width/1.5, 42);
+    ctx.fillStyle = "black";
+    ctx.fillText("Paras tulos: " + score_best, canvas.width/1.5, 65);
+    ctx.fillStyle = "white";
+    ctx.fillText("Paras tulos: " + score_best, canvas.width/1.5, 67);
 }
 
 
@@ -152,20 +163,37 @@ drawMario = () => {
 // Creating game over screen
 drawGameOver = () => {
     ctx.textAlign = "center";
-    ctx.fillStyle = "black";
-    ctx.font = "45px Georgia";
+    
     if(score>9) {
-        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/3);
+        ctx.fillStyle = "black";
+        ctx.font = "30px Georgia";
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2.5);
         ctx.fillText(`Hyvin pelattu Lukas!`, canvas.width/2, canvas.height/2);
         ctx.fillStyle = "blue";
-        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/3+2);
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2.5+2);
         ctx.fillText(`Hyvin pelattu Lukas!`, canvas.width/2, canvas.height/2+2);
+        ctx.fillStyle = "red";
+        ctx.font = "20px Georgia";
+        ctx.fillText(`Aloita alusta`, canvas.width/2, canvas.height/1.7); 
     }
     else {
+        ctx.fillStyle = "black";
+        ctx.font = "30px Georgia";
         ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2);
         ctx.fillStyle = "blue";
-        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2+2)       
+        ctx.fillText(`Peli loppui`, canvas.width/2, canvas.height/2+2)
+        ctx.fillStyle = "red";
+        ctx.font = "20px Georgia";
+        ctx.fillText(`Aloita alusta`, canvas.width/2, canvas.height/1.6);       
     }
+
+    if(score_best<score) {
+        localStorage.setItem("best", score);
+        console.log("fsd");
+    }
+    window.addEventListener("click", function(e) {
+        location.reload();
+    });
 }
 
 // Creating Event Listener for collision
