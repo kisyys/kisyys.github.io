@@ -30,12 +30,12 @@ class Raven {
     constructor() {
         this.spriteWidth = 200;
         this.spiteHeight = 202;
-        this.sizeModifier = Math.random() * 0.6 + 0.4;
+        this.sizeModifier = Math.random() * 0.4 + 0.2;
         this.width = this.spriteWidth * this.sizeModifier;
         this.height = this.spiteHeight * this.sizeModifier;
         this.x = canvas.width;
         this.y = Math.random() * (canvas.height - this.height);
-        this.directionX = Math.random() * 3 + 2;
+        this.directionX = Math.random() * 2.5 + 1;
         this.directionY = Math.random() * 3 + 2.5;
         this.markedForDeletion = false;
         this.image = new Image();
@@ -67,7 +67,7 @@ class Raven {
                 }  
             }     
         }
-        if(this.x < 0 - this.width + 400) GameOver = true; 
+        if(this.x < 0 - this.width + window.innerWidth/6 + 50) GameOver = true; 
     }
     draw() {
         collisionCtx.fillStyle = this.color;
@@ -140,16 +140,16 @@ class Particle {
 // Creating score counter
 drawScore = () => {
     ctx.fillStyle = "black";
-    ctx.fillText("Lukaksen pisteet: " + score, 1000, 75);
+    ctx.fillText("Lukaksen pisteet: " + score, canvas.width/2.5, 40);
     ctx.fillStyle = "white";
-    ctx.fillText("Lukaksen pisteet: " + score, 1005, 80);
+    ctx.fillText("Lukaksen pisteet: " + score, canvas.width/2.5, 45);
 }
 
 
 drawMario = () => {
     let image = new Image();
-    image.src = "mario6.png";  
-    ctx.drawImage(image, 0, 0);
+    image.src = "mario6.png";
+    ctx.drawImage(image, 0, 0, window.innerWidth/6, window.innerHeight);
 }
 
 // Creating game over screen
