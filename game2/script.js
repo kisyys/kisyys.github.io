@@ -1,6 +1,6 @@
 /** @type {HTMLCanvasElement} */
 
-const pic_width = Math.floor(window.innerWidth/10);
+const pic_width = Math.floor(window.innerWidth/6);
 let pic_height = Math.floor(window.innerHeight/6);
 
 if(pic_height%2 != 0) pic_height+=1;
