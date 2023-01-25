@@ -86,7 +86,7 @@ class Reel {
         this.p1 = 0*pic_height;
         this.p2 = 1*pic_height;
         this.p3 = 2*pic_height;
-        this.speed = pic_height/5;
+        this.speed = pic_height/9;
         this.numb = 0;
         
     }
