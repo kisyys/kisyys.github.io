@@ -1,0 +1,31 @@
+#container1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#cash {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#canvas1 {
+    border: 3px solid black;
+    position: relative;
+}
+
+#button1 {
+    width: 100px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+}
+#results {
+    font-size: 14px;
+}
