@@ -708,8 +708,8 @@ winning = () => {
         }
     }
     if(total===0) {
-        let s = Math.floor(Math.random() * 2 + 0);
-        if(s===1) {
+        // let s = Math.floor(Math.random() * 2 + 0);
+        // if(s===1) {
             results.innerHTML += "LOOOOSER!!! <br> <b>" + "Total winning: " + total + "</b>";
             var loser = new Audio();
             loser.src = "looser.wav"
@@ -717,13 +717,13 @@ winning = () => {
             var laugh = new Audio();
             laugh.src = "laugh.wav"
             laugh.play()
-        }
-        else {
-            results.innerHTML += "Go and jump to the toilet, MORON! <br> <b>" + "Total winning: " + total + "</b>";
-            var toilet = new Audio();
-            toilet.src = "toilet.wav"
-            toilet.play()
-        }  
+        // }
+        // else {
+        //     results.innerHTML += "Go and jump to the toilet, MORON! <br> <b>" + "Total winning: " + total + "</b>";
+        //     var toilet = new Audio();
+        //     toilet.src = "toilet.wav"
+        //     toilet.play()
+        // }  
         
     } else {
         results.innerHTML += "<b>" + "Total winning: " + total + "</b>";
