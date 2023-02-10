@@ -51,7 +51,7 @@ class Reel {
         this.roll = new Audio();
         this.roll.src = "roll.mp3"
         
-        this.images = ["dealer.png", "dealer.png", "dealer.png", "dealer.png", "gambler.png", "gambler.png", "gambler.png", "slots.png", "slots.png", "white.png"]
+        this.images = ["dealer.png", "dealer.png", "gambler.png", "gambler.png", "slots.png", "slots.png", "white.png"]
         
         this.image1 = new Image();
         this.pic_number1 = Math.floor(Math.random() * this.images.length);
@@ -710,6 +710,11 @@ winning = () => {
     if(total===0) {
         // let s = Math.floor(Math.random() * 2 + 0);
         // if(s===1) {
+            ctx.font = "bold 120px Ink Free";
+            ctx.fillStyle = "red";
+            ctx.textAlign = "center";
+            ctx.fillText("LOOOSER!!!", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
+            //ctx.clearRect(3 * pic_width, 0, pic_width, CANVAS_HEIGHT);
             results.innerHTML += "LOOOOSER!!! <br> <b>" + "Total winning: " + total + "</b>";
             var loser = new Audio();
             loser.src = "looser.wav"
