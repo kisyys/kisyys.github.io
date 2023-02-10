@@ -744,9 +744,6 @@ winning = () => {
         ctx.fillStyle = "red";
         ctx.textAlign = "center";
         ctx.fillText("Small win - small money!", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-        var laugh = new Audio();
-        laugh.src = "laugh.wav"
-        laugh.play()
     }
     else {
         results.innerHTML += "<b>" + "Total winning: " + total + "</b>";
@@ -755,10 +752,10 @@ winning = () => {
         console.log(size);
         ctx.fillStyle = "purple";
         ctx.textAlign = "center";
-        ctx.fillText("BIG WIN!!!", CANVAS_WIDTH / 2 + 3, CANVAS_HEIGHT / 2 + 3);
+        ctx.fillText("BIG MONEY!!!", CANVAS_WIDTH / 2 + 3, CANVAS_HEIGHT / 2 + 3);
         ctx.fillStyle = "red";
         ctx.textAlign = "center";
-        ctx.fillText("BIG WIN!!!", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        ctx.fillText("BIG MONEY!!!", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
     }
 
     localStorage.setItem("bank", money);
