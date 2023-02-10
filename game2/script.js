@@ -1,9 +1,9 @@
 /** @type {HTMLCanvasElement} */
 
-const pic_width = Math.floor(window.innerWidth/12);
-let pic_height = Math.floor(window.innerHeight/6);
+const pic_width = Math.floor(window.innerWidth / 12);
+let pic_height = Math.floor(window.innerHeight / 6);
 
-if(pic_height%2 != 0) pic_height+=1;
+if (pic_height % 2 != 0) pic_height += 1;
 
 // Canvas attributes
 const canvas = document.getElementById("canvas1");
@@ -22,19 +22,19 @@ let Stop4 = false;
 let Stop5 = false;
 
 let matrix = [];
-for(let i=0; i<3; i++) {
+for (let i = 0; i < 3; i++) {
     matrix[i] = new Array(5);
 }
 
-if(!localStorage.getItem("bank"))  {
+if (!localStorage.getItem("bank")) {
     var money = 1000;
-} 
+}
 else {
     var money = localStorage.getItem("bank");
 }
 
 const cash = document.getElementById("cash");
-cash.innerHTML = "Cash: "+ money;
+cash.innerHTML = "Cash: " + money;
 
 const results = document.getElementById("results");
 results.innerHTML = "";
@@ -44,19 +44,19 @@ var roll = 0;
 // Creating Reel class
 class Reel {
     constructor(x, y, z) {
-        
+
         this.music = new Audio();
         this.music.src = "RollUp.ogg"  // found at https://opengameart.org/content/roll-up
 
         this.roll = new Audio();
         this.roll.src = "roll.mp3"
-        
-        this.images = ["dealer.png", "dealer.png", "gambler.png", "gambler.png", "slots.png", "slots.png", "white.png"]
-        
+
+        this.images = ["dealer.png", "dealer.png", "dealer.png", "dealer.png", "dealer.png", "gambler.png", "gambler.png", "slots.png", "slots.png", "white.png"]
+
         this.image1 = new Image();
         this.pic_number1 = Math.floor(Math.random() * this.images.length);
         this.image1.src = this.images[this.pic_number1];
-        
+
         this.image2 = new Image();
         this.pic_number2 = Math.floor(Math.random() * this.images.length);
         this.image2.src = this.images[this.pic_number2];
@@ -68,7 +68,7 @@ class Reel {
         this.image4 = new Image();
         this.pic_number4 = Math.floor(Math.random() * this.images.length);
         this.image4.src = this.images[this.pic_number4];
-        
+
         this.spriteWidth = 128;
         this.spriteHeight = 128;
         this.width = pic_width;
@@ -83,207 +83,207 @@ class Reel {
         this.rounds4 = 1;
         this.rounds5 = 1;
         this.random1 = 3;
-        this.random2 = 0;    
-        this.p4 = -1*pic_height;
-        this.p1 = 0*pic_height;
-        this.p2 = 1*pic_height;
-        this.p3 = 2*pic_height;
-        this.speed = pic_height/4;
+        this.random2 = 0;
+        this.p4 = -1 * pic_height;
+        this.p1 = 0 * pic_height;
+        this.p2 = 1 * pic_height;
+        this.p3 = 2 * pic_height;
+        this.speed = pic_height / 4;
         this.numb = 0;
-        console.log(pic_height);
-        
+        //console.log(pic_height);
+
     }
     update() {
         if (this.y + this.height >= canvas.height) this.y = 0;
         this.y += this.speed;
-        
-        if (this.p1 >= canvas.height) this.p1 = -1*pic_height;
+
+        if (this.p1 >= canvas.height) this.p1 = -1 * pic_height;
         this.p1 += this.speed;
-        
-        if (this.p2 >= canvas.height) this.p2 = -1*pic_height;
+
+        if (this.p2 >= canvas.height) this.p2 = -1 * pic_height;
         this.p2 += this.speed;
-        
-        if (this.p3 >= canvas.height) this.p3 = -1*pic_height;
+
+        if (this.p3 >= canvas.height) this.p3 = -1 * pic_height;
         this.p3 += this.speed;
 
-        if (this.p4 >= canvas.height) this.p4 = -1*pic_height;
+        if (this.p4 >= canvas.height) this.p4 = -1 * pic_height;
         this.p4 += this.speed;
     }
 
     update2() {
-        if (this.rounds1 === 0 && this.rounds2 !== 0 && this.y === 0 * pic_height  || this.rounds1 === 0 && this.rounds2 !== 0 && this.y === 1 * pic_height || this.rounds1 === 0 && this.rounds2 !== 0 && this.y === 2 * pic_height) {
+        if (this.rounds1 === 0 && this.rounds2 !== 0 && this.y === 0 * pic_height || this.rounds1 === 0 && this.rounds2 !== 0 && this.y === 1 * pic_height || this.rounds1 === 0 && this.rounds2 !== 0 && this.y === 2 * pic_height) {
             this.rounds2 = Math.floor(Math.random() * this.random1 + this.random2)
-            if(Stop1===false) {
-                money-=100;
-                cash.innerHTML = "Cash: "+ money;
+            if (Stop1 === false) {
+                money -= 100;
+                cash.innerHTML = "Cash: " + money;
 
                 var arr = 0;
                 var x_cord = 0;
-                var position = 0*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                var position = 0 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 1;
                 x_cord = 0;
-                position = 1*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 1 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 2;
                 x_cord = 0;
-                position = 2*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
-              
+                position = 2 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
+
             }
             Stop1 = true;
         }
         else if (this.rounds2 === 0 && this.rounds3 !== 0 && this.y === 0 * pic_height || this.rounds2 === 0 && this.rounds3 !== 0 && this.y === 1 * pic_height || this.rounds2 === 0 && this.rounds3 !== 0 && this.y === 2 * pic_height) {
             this.rounds3 = Math.floor(Math.random() * this.random1 + this.random2)
-            if(Stop1===true && Stop2 ===false) {
+            if (Stop1 === true && Stop2 === false) {
 
                 arr = 0;
                 x_cord = 1;
-                position = 0*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 0 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 1;
                 x_cord = 1;
-                position = 1*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 1 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 2;
                 x_cord = 1;
-                position = 2*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
-               
+                position = 2 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
+
             }
             Stop2 = true;
         }
         else if (this.rounds3 === 0 && this.rounds4 !== 0 && this.y === 0 * pic_height || this.rounds3 === 0 && this.rounds4 !== 0 && this.y === 1 * pic_height || this.rounds3 === 0 && this.rounds4 !== 0 && this.y === 2 * pic_height) {
             this.rounds4 = Math.floor(Math.random() * this.random1 + this.random2);
-            if(Stop2===true && Stop3 ===false) {
+            if (Stop2 === true && Stop3 === false) {
 
                 arr = 0;
                 x_cord = 2;
-                position = 0*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 0 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 1;
                 x_cord = 2;
-                position = 1*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 1 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 2;
                 x_cord = 2;
-                position = 2*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 2 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
             }
             Stop3 = true;
         }
         else if (this.rounds4 === 0 && this.rounds5 !== 0 && this.y === 0 * pic_height || this.rounds4 === 0 && this.rounds5 !== 0 && this.y === 1 * pic_height || this.rounds4 === 0 && this.rounds5 !== 0 && this.y === 2 * pic_height) {
             this.rounds5 = Math.floor(Math.random() * this.random1 + this.random2);
-            if(Stop3===true && Stop4 ===false) {
+            if (Stop3 === true && Stop4 === false) {
 
                 arr = 0;
                 x_cord = 3;
-                position = 0*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 0 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 1;
                 x_cord = 3;
-                position = 1*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 1 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 2;
                 x_cord = 3;
-                position = 2*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
-        
+                position = 2 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
+
             }
             Stop4 = true;
         }
-        else if (this.rounds5 === 0 && this.y === 0 * pic_height || this.rounds5 === 0 && this.y === 1 * pic_height || this.rounds5 === 0 && this.y === 2 * pic_height ) {
-            if(Stop4===true && Stop5 ===false) {
+        else if (this.rounds5 === 0 && this.y === 0 * pic_height || this.rounds5 === 0 && this.y === 1 * pic_height || this.rounds5 === 0 && this.y === 2 * pic_height) {
+            if (Stop4 === true && Stop5 === false) {
 
                 arr = 0;
                 x_cord = 4;
-                position = 0*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 0 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 1;
                 x_cord = 4;
-                position = 1*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 1 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
 
                 arr = 2;
                 x_cord = 4;
-                position = 2*pic_height;
-                if(this.p1===position) matrix[arr][x_cord] = this.images[this.pic_number1];
-                if(this.p2===position) matrix[arr][x_cord] = this.images[this.pic_number2];
-                if(this.p3===position) matrix[arr][x_cord] = this.images[this.pic_number3];
-                if(this.p4===position) matrix[arr][x_cord] = this.images[this.pic_number4];
+                position = 2 * pic_height;
+                if (this.p1 === position) matrix[arr][x_cord] = this.images[this.pic_number1];
+                if (this.p2 === position) matrix[arr][x_cord] = this.images[this.pic_number2];
+                if (this.p3 === position) matrix[arr][x_cord] = this.images[this.pic_number3];
+                if (this.p4 === position) matrix[arr][x_cord] = this.images[this.pic_number4];
             }
-            
+
             Stop5 = true;
         }
         else {
             this.rounds1 = Math.floor(Math.random() * this.random1 + this.random2);
         }
-        
+
         if (this.y + this.height >= canvas.height) this.y = 0;
         this.y += this.speed;
-        
-        if (this.p1 >= canvas.height) this.p1 = -1*pic_height;
+
+        if (this.p1 >= canvas.height) this.p1 = -1 * pic_height;
         this.p1 += this.speed;
-        
-        if (this.p2 >= canvas.height) this.p2 = -1*pic_height;
+
+        if (this.p2 >= canvas.height) this.p2 = -1 * pic_height;
         this.p2 += this.speed;
-        
-        if (this.p3 >= canvas.height) this.p3 = -1*pic_height;
+
+        if (this.p3 >= canvas.height) this.p3 = -1 * pic_height;
         this.p3 += this.speed;
 
-        if (this.p4 >= canvas.height) this.p4 = -1*pic_height;
+        if (this.p4 >= canvas.height) this.p4 = -1 * pic_height;
         this.p4 += this.speed;
     }
 
@@ -301,7 +301,7 @@ class Reel {
         ctx.drawImage(this.image1, 0, 0, this.spriteWidth, this.spriteHeight, this.x, (this.p1), this.width, this.height);
         ctx.drawImage(this.image2, 0, 0, this.spriteWidth, this.spriteHeight, this.x, (this.p2), this.width, this.height);
         ctx.drawImage(this.image3, 0, 0, this.spriteWidth, this.spriteHeight, this.x, (this.p3), this.width, this.height);
-        ctx.drawImage(this.image4, 0, 0, this.spriteWidth, this.spriteHeight, this.x, (this.p4), this.width, this.height);  
+        ctx.drawImage(this.image4, 0, 0, this.spriteWidth, this.spriteHeight, this.x, (this.p4), this.width, this.height);
     }
 }
 
@@ -315,8 +315,8 @@ for (let i = 0; i < numberOffReels; i++) {
 
 // Creating animation
 animate1 = () => {
-    if(roll===0) {
-        ctx.clearRect(0 * pic_width, 0, pic_width, CANVAS_HEIGHT);      
+    if (roll === 0) {
+        ctx.clearRect(0 * pic_width, 0, pic_width, CANVAS_HEIGHT);
         reelsArray[0].draw();
         reelsArray[0].update2();
         reelsArray[1].draw();
@@ -348,7 +348,7 @@ animate1 = () => {
 
                 // reelsArray[0].stop();
                 // reelsArray[1].play();
-                
+
                 gameFrame++;
                 if (!Stop2) {
                     requestAnimationFrame(animate2);
@@ -418,310 +418,315 @@ animate1 = () => {
             }
             animate2();
         }
-    } else if(roll===1) {
+    } else if (roll === 1) {
         refresh2();
     }
 }
 
-refresh2 = () => {   
-    location.reload();   
+refresh2 = () => {
+    location.reload();
 }
 
 winning = () => {
-    var total=0;
-    for(var i=0; i<3; i++) {
-        for(var j=0; j<5; j++) {
+    var total = 0;
+    for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 5; j++) {
 
-            if(matrix[i][j]==="dealer.png") {
+            if (matrix[i][j] === "dealer.png") {
                 let id = "dealer";
                 let multi = 1;
                 let win = 20;
 
-                if(matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i][j+3] && matrix[i][j+3]===matrix[i][j+4]) {
+                if (matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i][j + 3] && matrix[i][j + 3] === matrix[i][j + 4]) {
                     let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                    
-                else if(j===0 && matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i][j+3]) {
-                    let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(j===0 && matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2]) {
-                    let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-              
-                if(i===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2] && matrix[i+2][j+2]===matrix[i+1][j+3] && matrix[i+1][j+3]===matrix[i+0][j+4]) {
-                    let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 & j===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2] && matrix[i+2][j+2]===matrix[i+1][j+3]) {
-                    let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 && j===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2]) {
-                    let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
 
-                if(i===0 && matrix[i][j]==="dealer.png" && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i+1][j+3] && matrix[i+1][j+3]===matrix[i+2][j+4]) {
-                    let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 && matrix[i][j]==="dealer.png" && j===0 && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i+1][j+3]) {
+                else if (j === 0 && matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i][j + 3]) {
                     let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
-                
-                else if(i===0 && matrix[i][j]==="dealer.png" &&  j===0 && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2]) {
+
+                else if (j === 0 && matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2]) {
                     let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                if (i === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2] && matrix[i + 2][j + 2] === matrix[i + 1][j + 3] && matrix[i + 1][j + 3] === matrix[i + 0][j + 4]) {
+                    let hit = 5;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 & j === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2] && matrix[i + 2][j + 2] === matrix[i + 1][j + 3]) {
+                    let hit = 4;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && j === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2]) {
+                    let hit = 3;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                if (i === 0 && matrix[i][j] === "dealer.png" && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i + 1][j + 3] && matrix[i + 1][j + 3] === matrix[i + 2][j + 4]) {
+                    let hit = 5;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && matrix[i][j] === "dealer.png" && j === 0 && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i + 1][j + 3]) {
+                    let hit = 4;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && matrix[i][j] === "dealer.png" && j === 0 && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2]) {
+                    let hit = 3;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
             }
 
-            else if(matrix[i][j]==="gambler.png") {
+            else if (matrix[i][j] === "gambler.png") {
                 let id = "gambler";
                 let multi = 2;
                 let win = 20;
 
-                if(matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i][j+3] && matrix[i][j+3]===matrix[i][j+4]) {
+                if (matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i][j + 3] && matrix[i][j + 3] === matrix[i][j + 4]) {
                     let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                    
-                else if(j===0 && matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i][j+3]) {
-                    let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(j===0 && matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2]) {
-                    let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-              
-                if(i===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2] && matrix[i+2][j+2]===matrix[i+1][j+3] && matrix[i+1][j+3]===matrix[i+0][j+4]) {
-                    let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 & j===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2] && matrix[i+2][j+2]===matrix[i+1][j+3]) {
-                    let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 && j===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2]) {
-                    let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
 
-                if(i===0 && matrix[i][j]==="gambler.png" && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i+1][j+3] && matrix[i+1][j+3]===matrix[i+2][j+4]) {
-                    let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 && matrix[i][j]==="gambler.png" && j===0 && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i+1][j+3]) {
+                else if (j === 0 && matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i][j + 3]) {
                     let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
-                
-                else if(i===0 && matrix[i][j]==="gambler.png" && j===0 && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2]) {
+
+                else if (j === 0 && matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2]) {
                     let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                if (i === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2] && matrix[i + 2][j + 2] === matrix[i + 1][j + 3] && matrix[i + 1][j + 3] === matrix[i + 0][j + 4]) {
+                    let hit = 5;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 & j === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2] && matrix[i + 2][j + 2] === matrix[i + 1][j + 3]) {
+                    let hit = 4;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && j === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2]) {
+                    let hit = 3;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                if (i === 0 && matrix[i][j] === "gambler.png" && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i + 1][j + 3] && matrix[i + 1][j + 3] === matrix[i + 2][j + 4]) {
+                    let hit = 5;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && matrix[i][j] === "gambler.png" && j === 0 && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i + 1][j + 3]) {
+                    let hit = 4;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && matrix[i][j] === "gambler.png" && j === 0 && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2]) {
+                    let hit = 3;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
             }
-            else if(matrix[i][j]==="slots.png") {
+            else if (matrix[i][j] === "slots.png") {
                 let id = "slots";
                 let multi = 3;
                 let win = 20;
 
-                if(matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i][j+3] && matrix[i][j+3]===matrix[i][j+4]) {
+                if (matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i][j + 3] && matrix[i][j + 3] === matrix[i][j + 4]) {
                     let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                    
-                else if(j===0 && matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i][j+3]) {
-                    let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(j===0 && matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2]) {
-                    let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-              
-                if(i===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2] && matrix[i+2][j+2]===matrix[i+1][j+3] && matrix[i+1][j+3]===matrix[i+0][j+4]) {
-                    let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 & j===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2] && matrix[i+2][j+2]===matrix[i+1][j+3]) {
-                    let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 && j===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2]) {
-                    let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
 
-                if(i===0 && matrix[i][j]==="slots.png" && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i+1][j+3] && matrix[i+1][j+3]===matrix[i+2][j+4]) {
-                    let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 && matrix[i][j]==="slots.png" && j===0 && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i+1][j+3]) {
+                else if (j === 0 && matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i][j + 3]) {
                     let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
-                
-                else if(i===0 && matrix[i][j]==="slots.png" && j===0 && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2]) {
+
+                else if (j === 0 && matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2]) {
                     let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                if (i === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2] && matrix[i + 2][j + 2] === matrix[i + 1][j + 3] && matrix[i + 1][j + 3] === matrix[i + 0][j + 4]) {
+                    let hit = 5;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 & j === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2] && matrix[i + 2][j + 2] === matrix[i + 1][j + 3]) {
+                    let hit = 4;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && j === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2]) {
+                    let hit = 3;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                if (i === 0 && matrix[i][j] === "slots.png" && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i + 1][j + 3] && matrix[i + 1][j + 3] === matrix[i + 2][j + 4]) {
+                    let hit = 5;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && matrix[i][j] === "slots.png" && j === 0 && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i + 1][j + 3]) {
+                    let hit = 4;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && matrix[i][j] === "slots.png" && j === 0 && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2]) {
+                    let hit = 3;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
             }
-            else if(matrix[i][j]==="white.png") {
+            else if (matrix[i][j] === "white.png") {
                 let id = "white";
                 let multi = 4;
                 let win = 20;
 
-                if(matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i][j+3] && matrix[i][j+3]===matrix[i][j+4]) {
+                if (matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i][j + 3] && matrix[i][j + 3] === matrix[i][j + 4]) {
                     let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                    
-                else if(j===0 && matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i][j+3]) {
-                    let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(j===0 && matrix[i][j]===matrix[i][j+1] && matrix[i][j+1]===matrix[i][j+2]) {
-                    let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on straight line "+parseInt(i+1)+"! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-              
-                if(i===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2] && matrix[i+2][j+2]===matrix[i+1][j+3] && matrix[i+1][j+3]===matrix[i+0][j+4]) {
-                    let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 & j===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2] && matrix[i+2][j+2]===matrix[i+1][j+3]) {
-                    let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 && j===0 && matrix[i][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i+2][j+2]) {
-                    let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
 
-                if(i===0 && matrix[i][j]==="white.png" && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i+1][j+3] && matrix[i+1][j+3]===matrix[i+2][j+4]) {
-                    let hit = 5;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
-                }
-                
-                else if(i===0 && matrix[i][j]==="white.png" && j===0 && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2] && matrix[i][j+2]===matrix[i+1][j+3]) {
+                else if (j === 0 && matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i][j + 3]) {
                     let hit = 4;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
-                
-                else if(i===0 && matrix[i][j]==="white.png" && j===0 && matrix[i+2][j]===matrix[i+1][j+1] && matrix[i+1][j+1]===matrix[i][j+2]) {
+
+                else if (j === 0 && matrix[i][j] === matrix[i][j + 1] && matrix[i][j + 1] === matrix[i][j + 2]) {
                     let hit = 3;
-                    money+=parseInt(hit*win*multi);
-                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit*win*multi)+"!" +" <br>";
-                    total +=parseInt(hit*win*multi);
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on straight line " + parseInt(i + 1) + "! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
                 }
-            }         
+
+                if (i === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2] && matrix[i + 2][j + 2] === matrix[i + 1][j + 3] && matrix[i + 1][j + 3] === matrix[i + 0][j + 4]) {
+                    let hit = 5;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 & j === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2] && matrix[i + 2][j + 2] === matrix[i + 1][j + 3]) {
+                    let hit = 4;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && j === 0 && matrix[i][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i + 2][j + 2]) {
+                    let hit = 3;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from top! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                if (i === 0 && matrix[i][j] === "white.png" && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i + 1][j + 3] && matrix[i + 1][j + 3] === matrix[i + 2][j + 4]) {
+                    let hit = 5;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && matrix[i][j] === "white.png" && j === 0 && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2] && matrix[i][j + 2] === matrix[i + 1][j + 3]) {
+                    let hit = 4;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+
+                else if (i === 0 && matrix[i][j] === "white.png" && j === 0 && matrix[i + 2][j] === matrix[i + 1][j + 1] && matrix[i + 1][j + 1] === matrix[i][j + 2]) {
+                    let hit = 3;
+                    money += parseInt(hit * win * multi);
+                    results.innerHTML += hit + " of a " + id + " on diaconal line from bottom! You win " + parseInt(hit * win * multi) + "!" + " <br>";
+                    total += parseInt(hit * win * multi);
+                }
+            }
         }
     }
-    if(total===0) {
+    if (total === 0) {
         // let s = Math.floor(Math.random() * 2 + 0);
         // if(s===1) {
-            ctx.font = "bold 120px Ink Free";
-            ctx.fillStyle = "red";
-            ctx.textAlign = "center";
-            ctx.fillText("LOOOSER!!!", CANVAS_WIDTH/2, CANVAS_HEIGHT/2);
-            //ctx.clearRect(3 * pic_width, 0, pic_width, CANVAS_HEIGHT);
-            results.innerHTML += "LOOOOSER!!! <br> <b>" + "Total winning: " + total + "</b>";
-            var loser = new Audio();
-            loser.src = "looser.wav"
-            loser.play()
-            var laugh = new Audio();
-            laugh.src = "laugh.wav"
-            laugh.play()
+        let size = Math.floor(window.innerHeight / 8);
+        ctx.font = "bold " + size + "px Arial";
+        console.log(size);
+        ctx.fillStyle = "purple";
+        ctx.textAlign = "center";
+        ctx.fillText("LOOOSER!!!", CANVAS_WIDTH / 2 + 3, CANVAS_HEIGHT / 2 + 3);
+        ctx.fillStyle = "red";
+        ctx.textAlign = "center";
+        ctx.fillText("LOOOSER!!!", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        //ctx.clearRect(3 * pic_width, 0, pic_width, CANVAS_HEIGHT);
+        results.innerHTML += "LOOOOSER!!! <br> <b>" + "Total winning: " + total + "</b>";
+        var loser = new Audio();
+        loser.src = "looser.wav"
+        loser.play()
+        var laugh = new Audio();
+        laugh.src = "laugh.wav"
+        laugh.play()
         // }
         // else {
         //     results.innerHTML += "Go and jump to the toilet, MORON! <br> <b>" + "Total winning: " + total + "</b>";
@@ -729,13 +734,35 @@ winning = () => {
         //     toilet.src = "toilet.wav"
         //     toilet.play()
         // }  
-        
-    } else {
-        results.innerHTML += "<b>" + "Total winning: " + total + "</b>";
+
+    } else if (total < 200) {
+        let size = Math.floor(window.innerHeight / 14);
+        ctx.font = "bold " + size + "px Arial";
+        ctx.fillStyle = "purple";
+        ctx.textAlign = "center";
+        ctx.fillText("Small win - small money!", CANVAS_WIDTH / 2 + 3, CANVAS_HEIGHT / 2 + 3);
+        ctx.fillStyle = "red";
+        ctx.textAlign = "center";
+        ctx.fillText("Small win - small money!", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        var laugh = new Audio();
+        laugh.src = "laugh.wav"
+        laugh.play()
     }
-    
+    else {
+        results.innerHTML += "<b>" + "Total winning: " + total + "</b>";
+        let size = Math.floor(window.innerHeight / 8);
+        ctx.font = "bold " + size + "px Arial";
+        console.log(size);
+        ctx.fillStyle = "purple";
+        ctx.textAlign = "center";
+        ctx.fillText("BIG WIN!!!", CANVAS_WIDTH / 2 + 3, CANVAS_HEIGHT / 2 + 3);
+        ctx.fillStyle = "red";
+        ctx.textAlign = "center";
+        ctx.fillText("BIG WIN!!!", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+    }
+
     localStorage.setItem("bank", money);
-    console.log(localStorage.getItem("bank"))
-    cash.innerHTML = "Cash: "+ money;
+    //console.log(localStorage.getItem("bank"))
+    cash.innerHTML = "Cash: " + money;
     roll = 1;
 }
